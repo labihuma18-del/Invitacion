@@ -2495,7 +2495,7 @@ function revealObserver() {
   const successMsg = document.getElementById("rsvp-success-msg");
 
   form.addEventListener("submit", function(e) {
-    e.preventDefault();
+    e.preventDefault(); // Evita que la página salte o se recargue
 
     const name   = document.getElementById("rsvp-name").value.trim();
     const asiste = document.getElementById("rsvp-asiste").value;
@@ -2509,22 +2509,39 @@ function revealObserver() {
       return;
     }
 
-    // ENLAZAR A FORMSUBMIT.CO 
+    // Cambiar el texto del botón mientras envía
+    const submitBtn = form.querySelector('.btn-rsvp');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = "Enviando...";
+    submitBtn.disabled = true;
+
+    // ENLAZAR A FORMSUBMIT.CO EN SEGUNDO PLANO (AJAX)
     if (CONFIG.rsvpAction) {
-      form.action = CONFIG.rsvpAction;
-      form.method = "POST";
-      form.submit();
-      return;
+      fetch(CONFIG.rsvpAction, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json' // Esto le dice a FormSubmit que no cambie de página
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        // ASISTE O NO ASISTE (Mensaje de éxito)
+        const msg = asiste === "si"
+          ? "Con mucho gusto esperamos verte ese dia. Con amor, Jadiel & Mary."
+          : "Gracias por avisarnos. Los tendremos en nuestros corazones.";
+
+        successMsg.textContent = msg;
+        form.style.display    = "none";
+        success.style.display = "block";
+      })
+      .catch(error => {
+        console.error("Error al enviar:", error);
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+        alert("Hubo un problema al enviar. Por favor intenta de nuevo.");
+      });
     }
-
-    // ASISITE O NO ASISTE 
-    const msg = asiste === "si"
-      ? "Con mucho gusto esperamos verte ese dia. Con amor, Jadiel & Mary."
-      : "Gracias por avisarnos. Los tendremos en nuestros corazones.";
-
-    successMsg.textContent = msg;
-    form.style.display    = "none";
-    success.style.display = "block";
   });
 })();
 
