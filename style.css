@@ -210,8 +210,7 @@ h1{
     position:absolute;
     width:70px;
     height:70px;
-    border-radius:50%;
-    background:radial-gradient(circle at 30% 30%,#f6e59f,#c9a238,#9f791b);
+   
     left:125px;
     top:78px;
     z-index:7;
@@ -221,6 +220,15 @@ h1{
     color:#fff;
     font-size:22px;
     transition:.6s ease;
+}
+
+.sello img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    transform:scale(1.2);
+    transform-origin:center;
+    filter:drop-shadow(0 6px 10px rgba(0,0,0,.30));
 }
 
 /* ABRIR */
