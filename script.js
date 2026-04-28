@@ -33,6 +33,7 @@ const contador = setInterval(function(){
         document.getElementById("contador").classList.add("explosion");
 
         setTimeout(function(){
+            
 
             document.getElementById("contador").style.display = "none";
 

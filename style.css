@@ -36,20 +36,25 @@ h1{
 .box span{
     display:block;
     background:white;
-    padding:18px;
+    padding:30px;
     min-width:70px;
     border-radius:12px;
     font-size:32px;
     box-shadow:0 5px 12px rgba(0,0,0,.08);
+     font-family: 'Cormorant Garamond', serif;
+
 }
 
 .box small{
     display:block;
-    margin-top:8px;
+    margin-top:12px;
+     font-family: 'Cormorant Garamond', serif;
 }
 
 .dots{
     font-size:35px;
+
+
 }
 
 /* EXPLOSIÓN */
@@ -79,6 +84,8 @@ h1{
 }
 
 #hoy h2{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
     font-size:70px;
     color:#c89b63;
 }
@@ -114,7 +121,7 @@ h1{
 }
 
 .texto{
-    margin-top:10px;
+    margin-top:50px;
     margin-bottom:35px;
     color:#8c6f5d;
     letter-spacing:2px;
@@ -271,7 +278,7 @@ h1{
     }
 
     .box span{
-        min-width:20px;
+        min-width: 30px;
         padding:12px;
         font-size:24px;
     }
@@ -290,7 +297,24 @@ h1{
     }
 
     #mensaje{
-        font-size:28px;
-    }
+    font-family: 'Montserrat', sans-serif;
 
+    font-size:25px;
+    font-style: italic;
+    color:#343434;
+    letter-spacing:2px;
+}
+
+
+.fecha{
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 30px !important;
+    color: #04474b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin: 15px 0;
+    letter-spacing: 4px;
+}
 }
