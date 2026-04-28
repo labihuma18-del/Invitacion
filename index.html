@@ -8,9 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Parisienne&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   VARIABLES & RESET
-   ============================================================ */
+/* VARIABLES & RESET */
 :root {
   --cream:       #faf6f0;
   --cream-dark:  #f0e8dc;
@@ -45,9 +43,7 @@ body {
   line-height: 1.7;
 }
 
-/* ============================================================
-   PETALS CANVAS (shared)
-   ============================================================ */
+/*    PETALS CANVAS (shared)  */
 #petals-canvas {
   position: fixed;
   top: 0; left: 0;
@@ -192,6 +188,7 @@ body {
   line-height: 1;
   margin-bottom: 6px;
   animation: fadeDown .9s ease both;
+  text-align: center;
 }
 
 .landing-divider {
@@ -212,6 +209,7 @@ body {
   align-items: center;
   gap: 10px;
   animation: fadeDown .9s .3s ease both;
+  text-align: center;
 }
 
 .landing-date .dot { color: var(--gold); font-size: 10px; }
@@ -223,6 +221,7 @@ body {
   color: rgba(255,255,255,.6);
   text-transform: uppercase;
   animation: fadeDown .9s .45s ease both;
+  text-align: center;
 }
 
 /* ---- ENVELOPE ---- */
@@ -1551,7 +1550,10 @@ footer {
   .sobre-der  { border-top-width: 94px; border-bottom-width: 94px; border-right-width: 120px; }
   .sobre-frente { border-left-width: 135px; border-right-width: 135px; border-bottom-width: 104px; }
   .sobre-tapa   { border-left-width: 135px; border-right-width: 135px; border-top-width: 104px; }
-  .sobre-sello  { left: calc(50% - 33px); top: calc(50% - 33px); }
+  
+  /* movil pipipi */
+  .sobre-carta  { width: 240px; height: 145px; left: 15px; top: 40px; }
+  .sobre.abrir .sobre-carta { top: -35px; }
 }
 </style>
 </head>
@@ -1969,7 +1971,7 @@ footer {
     </div>
   </section>
 
-  <!-- GIFTS -->
+  <!-- regalos -->
   <section class="gifts-section" aria-label="Lista de regalos">
     <p class="section-label reveal">Con todo nuestro amor</p>
     <h2 class="section-title reveal">Lista de <em>Regalos</em></h2>
@@ -2079,8 +2081,8 @@ footer {
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="rsvp-restricciones">Restricciones alimentarias</label>
-          <input class="form-input" type="text" id="rsvp-restricciones" name="restricciones" placeholder="Vegetariano, alergias, etc.">
+          <label class="form-label" for="rsvp-observaciones">observaciones </label>
+          <input class="form-input" type="text" id="rsvp-observaciones" name="observaciones" placeholder="Asistirá con niños, solo asistira a la cermonia, etc.">
         </div>
 
         <div class="form-group">
@@ -2122,19 +2124,19 @@ footer {
 const CONFIG = {
   // -- FECHA --
   // Cambia a false cuando quieras usar la fecha real
-  modoDemo: true,
+  modoDemo: false,
   fechaReal: new Date("May 30, 2026 11:00:00"),
   demoSegundos: 10,
 
   // -- CANCION --
   // Cambia estos datos con el nombre real de tu cancion
-  songTitle:  "Nombre de la Cancion",
-  songArtist: "Nombre del Artista",
+  songTitle:  "gabi hola",
+  songArtist: "gabi",
 
   // -- RSVP --
   // Para recibir formularios por correo usa formsubmit.co:
-  // rsvpAction: "https://formsubmit.co/tu@email.com"
-  rsvpAction: null
+  rsvpAction: "https://formsubmit.co/labihuma18@gmail.com"
+  
 };
 
 /* ============================================================
@@ -2507,7 +2509,7 @@ function revealObserver() {
       return;
     }
 
-    // If rsvpAction is set, submit to FormSubmit
+    // ENLAZAR A FORMSUBMIT.CO 
     if (CONFIG.rsvpAction) {
       form.action = CONFIG.rsvpAction;
       form.method = "POST";
@@ -2515,7 +2517,7 @@ function revealObserver() {
       return;
     }
 
-    // Otherwise show success state
+    // ASISITE O NO ASISTE 
     const msg = asiste === "si"
       ? "Con mucho gusto esperamos verte ese dia. Con amor, Jadiel & Mary."
       : "Gracias por avisarnos. Los tendremos en nuestros corazones.";
@@ -2526,9 +2528,7 @@ function revealObserver() {
   });
 })();
 
-/* ============================================================
-   EXPLOSION animation on countdown
-   ============================================================ */
+/*  EXPLOSION intentoo2*/
 (function() {
   const style = document.createElement("style");
   style.textContent = `
