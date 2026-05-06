@@ -2926,7 +2926,7 @@
             <p class="section-label reveal text-gold" style="text-align:center">
                 <span class="orn orn-pale" aria-hidden="true"></span>&nbsp;El gran día&nbsp;<span class="orn orn-pale" aria-hidden="true"></span>
             </p>
-            <h2 class="section-title reveal text-pale" id="itinerary-title" style="text-align:center">Itinerario <em style="color:var(--gold-light)">del viaje</em></h2>
+            <h2 class="section-title reveal text-pale" id="itinerary-title" style="text-align:center">Itinerario <em style="color:var(--gold-light)">del evento</em></h2>
             <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
             <div class="timeline" role="list">
 
@@ -3039,7 +3039,7 @@
 
                 <!-- ITEM 4: Paseo en Barco -->
                 <div class="tl-item reveal" role="listitem">
-                    
+
                     <div class="tl-center">
                         <div class="tl-dot" aria-hidden="true"></div>
                         <div class="tl-icon" aria-hidden="true">
@@ -3070,7 +3070,7 @@
                             <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M3 9l9-7 9 7M5 9v11a1 1 0 0 0 1 1h4v-5h4v5h4a1 1 0 0 0 1-1V9" /></svg>
                         </div>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -3229,7 +3229,8 @@
                             <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
                             Sí, con gusto
                         </button>
-                        <button class="big-btn big-btn-no" onclick="saveAnswer('asistencia_recepcion','No'); saveAnswer('puede_quedarse_final','N/A'); submitRsvp()">
+                        <!-- Si dicen que no a la recepción, saltamos la pregunta 3 y vamos directo al mensaje (Paso 4) -->
+                        <button class="big-btn big-btn-no" onclick="saveAnswer('asistencia_recepcion','No'); saveAnswer('puede_quedarse_final','N/A'); nextStep(2, 4)">
                             <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M18 6L6 18M6 6l12 12" /></svg>
                             No podré ir
                         </button>
@@ -3245,139 +3246,262 @@
                         <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Para organizar el transporte de regreso
                     </p>
                     <div class="big-btns">
-                        <button class="big-btn big-btn-yes" onclick="saveAnswer('puede_quedarse_final','Sí'); submitRsvp()">
+                        <button class="big-btn big-btn-yes" onclick="saveAnswer('puede_quedarse_final','Sí'); nextStep(3)">
                             <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
                             Sí, hasta el final
                         </button>
-                        <button class="big-btn big-btn-no" onclick="saveAnswer('puede_quedarse_final','No, necesito salir antes'); submitRsvp()">
+                        <button class="big-btn big-btn-no" onclick="saveAnswer('puede_quedarse_final','No, necesito salir antes'); nextStep(3)">
                             <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
                             Necesito salir antes
                         </button>
                     </div>
-                </div>
-
-                <div class="rsvp-success" id="rsvp-success">
-                    <div class="success-icon"><svg viewBox="0 0 24 24" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg></div>
-                    <h3>¡Gracias!</h3>
-                    <p id="rsvp-success-msg">Hemos recibido tu confirmación.<br>Con mucho amor, Maritza &amp; Jadiel.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- REGALOS -->
-        <section class="gifts-section" id="sec-gifts" aria-labelledby="gifts-title">
-            <p class="section-label reveal">
-                <span class="orn" aria-hidden="true"></span>&nbsp;Con todo nuestro amor&nbsp;<span class="orn" aria-hidden="true"></span>
-            </p>
-            <h2 class="section-title reveal" id="gifts-title">Lista de <em>Regalos</em></h2>
-            <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
-            <p class="gifts-intro reveal">Su presencia es nuestro mayor regalo. Si desean obsequiarnos algo, aquí les compartimos algunas opciones con mucho cariño.</p>
-
-            <div class="gifts-grid">
-                <div class="gift-card reveal">
-                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg></div>
-                    <h3 class="gift-name">Lista de Deseos</h3>
-                    <p class="gift-desc">Hemos preparado con amor una lista de regalos. Toca el botón para verla.</p>
-                    <a href="https://axisstudioss.my.canva.site/maritza-y-jadiel" target="_blank" rel="noopener" class="btn-canva">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" /></svg>
-                        Ver lista de regalos
-                    </a>
-                    <p style="font-size:15px;color:var(--text-light);font-style:italic;margin-top:8px">Se abrirá en una nueva pestaña</p>
-                </div>
-
-                <div class="gift-card reveal">
-                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg></div>
-                    <h3 class="gift-name">Pago con QR</h3>
-                    <p class="gift-desc">Escanea el código QR con tu app de pago para hacernos un regalo en línea.</p>
-                    <div class="gift-qr">
-                        <img src="img/qr-pago.png" alt="Código QR de pago" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="gift-qr-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="5" y="5" width="3" height="3" fill="var(--gold)" /><rect x="16" y="5" width="3" height="3" fill="var(--gold)" /><rect x="5" y="16" width="3" height="3" fill="var(--gold)" /><path d="M14 14h3v3h-3zM17 17h3v3M14 20h3" /></svg><span>img/qr-pago.png</span></div>
-                    </div>
-                    <p class="gift-detail" style="text-align:center">
-                        Pago Móvil<br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Banco: <span id="movil-banco">Nombre del Banco</span><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Teléfono: <span id="movil-tel">0000-000-0000</span><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Cédula: <span id="movil-cedula">000-0000000-0</span>
+                </div><!-- RSVP -->
+                <section class="rsvp-section" id="rsvp" aria-labelledby="rsvp-title">
+                    <p class="section-label reveal text-gold">
+                        <span class="orn orn-pale" aria-hidden="true"></span>&nbsp;Esperamos contar contigo&nbsp;<span class="orn orn-pale" aria-hidden="true"></span>
                     </p>
-                    <button class="btn-copy" data-copy="0000-000-0000">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
-                        Copiar número
-                    </button>
-                </div>
+                    <h2 class="section-title reveal text-pale" id="rsvp-title">Confirma tu <em style="color:var(--gold-light)">asistencia</em></h2>
+                    <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
 
-                <div class="gift-card reveal">
-                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2M2 11h20" /></svg></div>
-                    <h3 class="gift-name">Transferencia</h3>
-                    <p class="gift-desc">Puedes hacernos una transferencia directa a nuestra cuenta bancaria.</p>
-                    <p class="gift-detail">
-                        <strong style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold-deep)">DATOS BANCARIOS</strong><br><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Banco: <span id="banco-nombre">Nombre del Banco</span><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Titular: <span id="banco-titular">Jadiel / Maritza</span><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Cuenta: <span id="banco-cuenta">0000-0000-0000-0000</span><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Tipo: <span id="banco-tipo">Cuenta de Ahorros</span>
-                    </p>
-                    <button class="btn-copy" data-copy="0000-0000-0000-0000">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
-                        Copiar cuenta
-                    </button>
-                </div>
-            </div>
-            <p class="gifts-note reveal">Gracias de corazón por su generosidad y cariño.</p>
-        </section>
+                    <div class="rsvp-card reveal">
 
-        <!-- SUBIR FOTOS -->
-        <section class="photos-upload-section" id="sec-photos" aria-labelledby="upload-title">
-            <p class="section-label reveal">
-                <span class="orn" aria-hidden="true"></span>&nbsp;Comparte tus fotos&nbsp;<span class="orn" aria-hidden="true"></span>
-            </p>
-            <h2 class="section-title reveal" id="upload-title">Tu recuerdo <em>importa</em></h2>
-            <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
-            <div class="upload-card reveal">
-                <div class="upload-icon">
-                    <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-                </div>
-                <h3 class="upload-title">Sube tus fotos</h3>
-                <p class="upload-desc">¿Capturaste un momento especial? ¡Compártelo! Tus fotos se guardarán en nuestra carpeta compartida.</p>
-                <div class="dropzone" id="dropzone">
-                    <input type="file" id="file-input" accept="image/*,video/*" multiple>
-                    <div class="dropzone-text">
-                        <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Toca aquí para seleccionar tus fotos
+                        <!-- NOTA DE FECHA LÍMITE -->
+                        <div style="background: rgba(138,111,59,.08); border: 1.5px dashed rgba(138,111,59,.4); padding: 20px 24px; border-radius: var(--r-xs); margin-bottom: 34px;">
+                            <p style="font-size: clamp(15px, 2vw, 17px); color: var(--navy); line-height: 1.6; margin: 0; font-weight: 600;">
+                                Por favor confirme su asistencia hasta el día <strong style="color: var(--gold-deep); font-family: 'Cinzel', serif; letter-spacing: 1px;">martes 12 de mayo</strong>. Si ya llenó el formulario y hubo un cambio de planes lo puede volver a llenar, consideraremos el último formulario enviado hasta esa fecha. ¡Muchas gracias!
+                            </p>
+                        </div>
+
+                        <div class="rsvp-steps-indicator" id="steps-indicator"></div>
+
+                        <div class="rsvp-step" id="step-0">
+                            <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                                <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg>
+                            </span>
+                            <p class="step-question">¿Cómo te llamas?</p>
+                            <p class="step-sub">
+                                <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Para guardar tu lugar en nuestra boda
+                            </p>
+                            <div class="form-group">
+                                <label class="form-label" for="rsvp-name">
+                                    <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span>&nbsp;Nombre completo
+                                </label>
+                                <input class="form-input" type="text" id="rsvp-name" placeholder="Escribe tu nombre completo" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="rsvp-tel">
+                                    <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span>&nbsp;Teléfono <span style="font-size:.85em;opacity:.7">(opcional)</span>
+                                </label>
+                                <input class="form-input" type="tel" id="rsvp-tel" placeholder="Tu número de teléfono" autocomplete="tel">
+                            </div>
+                            <button class="btn-next-step" onclick="nextStep(0)">
+                                <span>Continuar</span>
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                            </button>
+                        </div>
+
+                        <div class="rsvp-step" id="step-1">
+                            <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                                <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M3 21h18M12 3v18M8 21v-8a4 4 0 0 1 8 0v8M12 3l-4 4h8z" /></svg>
+                            </span>
+                            <p class="step-question" id="q-ceremonia">¿Asistirá a la misa?</p>
+                            <p class="step-sub">
+                                <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Iglesia San Pedro · 11:00 AM
+                            </p>
+                            <div class="big-btns">
+                                <button class="big-btn big-btn-yes" onclick="saveAnswer('asistencia_misa','Sí'); nextStep(1)">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
+                                    Sí, ahí estaré
+                                </button>
+                                <button class="big-btn big-btn-no" onclick="saveAnswer('asistencia_misa','No'); nextStep(1)">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                                    No podré ir
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="rsvp-step" id="step-2">
+                            <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                                <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M2 20a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0M5 16l1-9h12l1 9M12 7V2M9 7l3-5 3 5" /></svg>
+                            </span>
+                            <p class="step-question">¿Asistirá a la celebración en el barco?</p>
+                            <p class="step-sub">
+                                <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Paseo en el Lago Titicaca
+                            </p>
+                            <div class="big-btns">
+                                <button class="big-btn big-btn-yes" onclick="saveAnswer('asistencia_recepcion','Sí'); nextStep(2)">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
+                                    Sí, con gusto
+                                </button>
+                                <button class="big-btn big-btn-no" onclick="saveAnswer('asistencia_recepcion','No'); saveAnswer('puede_quedarse_final','N/A'); nextStep(2, 4)">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                                    No podré ir
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="rsvp-step" id="step-3">
+                            <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                                <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                            </span>
+                            <p class="step-question">¿Puede quedarse hasta el final del paseo?</p>
+                            <p class="step-sub">
+                                <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Para organizar el transporte de regreso
+                            </p>
+                            <div class="big-btns">
+                                <button class="big-btn big-btn-yes" onclick="saveAnswer('puede_quedarse_final','Sí'); nextStep(3)">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
+                                    Sí, hasta el final
+                                </button>
+                                <button class="big-btn big-btn-no" onclick="saveAnswer('puede_quedarse_final','No, necesito salir antes'); nextStep(3)">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+                                    Necesito salir antes
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="rsvp-step" id="step-4">
+                            <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                                <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" stroke-width="1.5" style="display:block;margin:0 auto"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            </span>
+                            <p class="step-question">Déjanos un mensaje</p>
+                            <p class="step-sub">
+                                <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Unas palabras para los novios (opcional)
+                            </p>
+                            <div class="form-group">
+                                <label class="form-label" for="rsvp-mensaje">
+                                    <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span>&nbsp;Tu mensaje
+                                </label>
+                                <textarea class="form-textarea" id="rsvp-mensaje" rows="3" placeholder="Escribe tus buenos deseos aquí..."></textarea>
+                            </div>
+                            <button class="btn-next-step" onclick="saveAnswer('mensaje', document.getElementById('rsvp-mensaje').value); submitRsvp()">
+                                <span>Enviar Confirmación</span>
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                            </button>
+                        </div>
+
+                        <div class="rsvp-success" id="rsvp-success">
+                            <div class="success-icon"><svg viewBox="0 0 24 24" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg></div>
+                            <h3>¡Gracias!</h3>
+                            <p id="rsvp-success-msg">Hemos recibido tu confirmación.<br>Con mucho amor, Maritza &amp; Jadiel.</p>
+                        </div>
                     </div>
-                    <div class="dropzone-sub">JPG, PNG, MP4 · Máx. 100 MB por archivo</div>
-                </div>
-                <div class="upload-progress" id="upload-progress">
-                    <div class="upload-progress-bar"><div class="upload-progress-fill" id="upload-progress-fill"></div></div>
-                    <div class="upload-status" id="upload-status">Subiendo...</div>
-                </div>
-                <p class="upload-note" id="upload-error-msg" style="display:none; color: #b83030; font-weight: bold;">
-                    Hubo un error al subir los archivos.<br>Por favor envíalos por WhatsApp:<br><br>
-                    <a href="https://wa.me/59173443086?text=Les%20envio%20nuestros%20recuerdos%20de%20la%20boda%20de%20Maritza%20y%20Jadiel%20!" target="_blank"
-                       style="display:inline-flex;align-items:center;gap:8px;color:var(--gold-deep);font-weight:bold;text-decoration:none;padding:16px 24px;border:1.5px solid var(--gold);border-radius:var(--r-xs);transition:var(--t);font-size:17px;margin-top:8px">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.305-.88-.653-1.474-1.46-1.647-1.757-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
-                        WhatsApp: +591 73443086
-                    </a>
-                </p>
-            </div>
-        </section>
+                </section>
 
-        <!-- FOOTER -->
-        <footer id="sec-footer">
-            <div style="margin-bottom:20px;opacity:.45" aria-hidden="true">
-                <svg width="200" height="32" viewBox="0 0 200 32" fill="none">
-                    <line x1="0" y1="16" x2="80" y2="16" stroke="rgba(196,162,74,.38)" stroke-width="1" />
-                    <path d="M80 16 Q90 4 100 16 Q110 28 120 16" stroke="rgba(196,162,74,.65)" stroke-width="1" fill="none" />
-                    <line x1="120" y1="16" x2="200" y2="16" stroke="rgba(196,162,74,.38)" stroke-width="1" />
-                    <circle cx="100" cy="16" r="3" fill="rgba(196,162,74,.72)" />
-                </svg>
-            </div>
-            <div class="footer-names">Maritza &amp; Jadiel</div>
-            <div class="footer-line"></div>
-            <p class="footer-date">30 · 05 · 2026</p>
-            <div class="footer-line"></div>
-            <p class="footer-note">"Dos vidas, una historia, infinito amor."</p>
-        </footer>
+                <!-- REGALOS -->
+                <section class="gifts-section" id="sec-gifts" aria-labelledby="gifts-title">
+                    <p class="section-label reveal">
+                        <span class="orn" aria-hidden="true"></span>&nbsp;Con todo nuestro amor&nbsp;<span class="orn" aria-hidden="true"></span>
+                    </p>
+                    <h2 class="section-title reveal" id="gifts-title">Lista de <em>Regalos</em></h2>
+                    <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
+                    <p class="gifts-intro reveal">Su presencia es nuestro mayor regalo. Si desean obsequiarnos algo, aquí les compartimos algunas opciones con mucho cariño.</p>
 
-    </div><!-- fin #contenido -->
+                    <div class="gifts-grid">
+                        <div class="gift-card reveal">
+                            <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg></div>
+                            <h3 class="gift-name">Lista de Deseos</h3>
+                            <p class="gift-desc">Hemos preparado con amor una lista de regalos. Toca el botón para verla.</p>
+                            <a href="https://axisstudioss.my.canva.site/maritza-y-jadiel" target="_blank" rel="noopener" class="btn-canva">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" /></svg>
+                                Ver lista de regalos
+                            </a>
+                            <p style="font-size:15px;color:var(--text-light);font-style:italic;margin-top:8px">Se abrirá en una nueva pestaña</p>
+                        </div>
+
+                        <div class="gift-card reveal">
+                            <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg></div>
+                            <h3 class="gift-name">Pago con QR</h3>
+                            <p class="gift-desc">Escanea el código QR con tu app de pago para hacernos un regalo en línea.</p>
+                            <div class="gift-qr">
+                                <img src="img/qr-pago.png" alt="Código QR de pago" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                <div class="gift-qr-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="5" y="5" width="3" height="3" fill="var(--gold)" /><rect x="16" y="5" width="3" height="3" fill="var(--gold)" /><rect x="5" y="16" width="3" height="3" fill="var(--gold)" /><path d="M14 14h3v3h-3zM17 17h3v3M14 20h3" /></svg><span>img/qr-pago.png</span></div>
+                            </div>
+                            <p class="gift-detail" style="text-align:center">
+                                Pago Móvil<br>
+                                <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Banco: <span id="movil-banco">Nombre del Banco</span><br>
+                                <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Teléfono: <span id="movil-tel">0000-000-0000</span><br>
+                                <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Cédula: <span id="movil-cedula">000-0000000-0</span>
+                            </p>
+                            <button class="btn-copy" data-copy="0000-000-0000">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                                Copiar número
+                            </button>
+                        </div>
+
+                        <div class="gift-card reveal">
+                            <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2M2 11h20" /></svg></div>
+                            <h3 class="gift-name">Transferencia</h3>
+                            <p class="gift-desc">Puedes hacernos una transferencia directa a nuestra cuenta bancaria.</p>
+                            <p class="gift-detail">
+                                <strong style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold-deep)">DATOS BANCARIOS</strong><br><br>
+                                <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Banco: <span id="banco-nombre">Nombre del Banco</span><br>
+                                <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Titular: <span id="banco-titular">Jadiel / Maritza</span><br>
+                                <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Cuenta: <span id="banco-cuenta">0000-0000-0000-0000</span><br>
+                                <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Tipo: <span id="banco-tipo">Cuenta de Ahorros</span>
+                            </p>
+                            <button class="btn-copy" data-copy="0000-0000-0000-0000">
+                                <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                                Copiar cuenta
+                            </button>
+                        </div>
+                    </div>
+                    <p class="gifts-note reveal">Gracias de corazón por su generosidad y cariño.</p>
+                </section>
+
+                <!-- SUBIR FOTOS -->
+                <section class="photos-upload-section" id="sec-photos" aria-labelledby="upload-title">
+                    <p class="section-label reveal">
+                        <span class="orn" aria-hidden="true"></span>&nbsp;Comparte tus fotos&nbsp;<span class="orn" aria-hidden="true"></span>
+                    </p>
+                    <h2 class="section-title reveal" id="upload-title">Tu recuerdo <em>importa</em></h2>
+                    <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
+                    <div class="upload-card reveal">
+                        <div class="upload-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
+                        </div>
+                        <h3 class="upload-title">Sube tus fotos</h3>
+                        <p class="upload-desc">¿Capturaste un momento especial? ¡Compártelo! Tus fotos se guardarán en nuestra carpeta compartida.</p>
+                        <div class="dropzone" id="dropzone">
+                            <input type="file" id="file-input" accept="image/*,video/*" multiple>
+                            <div class="dropzone-text">
+                                <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Toca aquí para seleccionar tus fotos
+                            </div>
+                            <div class="dropzone-sub">JPG, PNG, MP4 · Máx. 100 MB por archivo</div>
+                        </div>
+                        <div class="upload-progress" id="upload-progress">
+                            <div class="upload-progress-bar"><div class="upload-progress-fill" id="upload-progress-fill"></div></div>
+                            <div class="upload-status" id="upload-status">Subiendo...</div>
+                        </div>
+                        <p class="upload-note" id="upload-error-msg" style="display:none; color: #b83030; font-weight: bold;">
+                            Hubo un error al subir los archivos.<br>Por favor envíalos por WhatsApp:<br><br>
+                            <a href="https://wa.me/59173443086?text=Les%20envio%20nuestros%20recuerdos%20de%20la%20boda%20de%20Maritza%20y%20Jadiel%20!" target="_blank"
+                               style="display:inline-flex;align-items:center;gap:8px;color:var(--gold-deep);font-weight:bold;text-decoration:none;padding:16px 24px;border:1.5px solid var(--gold);border-radius:var(--r-xs);transition:var(--t);font-size:17px;margin-top:8px">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.305-.88-.653-1.474-1.46-1.647-1.757-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
+                                WhatsApp: +591 73443086
+                            </a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- FOOTER -->
+                <footer id="sec-footer">
+                    <div style="margin-bottom:20px;opacity:.45" aria-hidden="true">
+                        <svg width="200" height="32" viewBox="0 0 200 32" fill="none">
+                            <line x1="0" y1="16" x2="80" y2="16" stroke="rgba(196,162,74,.38)" stroke-width="1" />
+                            <path d="M80 16 Q90 4 100 16 Q110 28 120 16" stroke="rgba(196,162,74,.65)" stroke-width="1" fill="none" />
+                            <line x1="120" y1="16" x2="200" y2="16" stroke="rgba(196,162,74,.38)" stroke-width="1" />
+                            <circle cx="100" cy="16" r="3" fill="rgba(196,162,74,.72)" />
+                        </svg>
+                    </div>
+                    <div class="footer-names">Maritza &amp; Jadiel</div>
+                    <div class="footer-line"></div>
+                    <p class="footer-date">30 · 05 · 2026</p>
+                    <div class="footer-line"></div>
+                    <p class="footer-note">"Dos vidas, una historia, infinito amor."</p>
+                </footer>
+
+            </div><!-- fin #contenido -->
 
     <script>
         /* ═══════════════════════════════════════════
@@ -3464,12 +3588,12 @@
                     if (s0) s0.classList.remove('active');
                     var s1 = document.getElementById('step-1');
                     if (s1) s1.classList.add('active');
-                    buildStepDots(3, 0);
+                    buildStepDots(4, 0); // Ajustado por el nuevo paso (de 3 a 4)
                 }, 50);
             } else {
                 var s0 = document.getElementById('step-0');
                 if (s0) s0.classList.add('active');
-                buildStepDots(4, 0);
+                buildStepDots(5, 0); // Ajustado por el nuevo paso (de 4 a 5)
             }
         })();
 
@@ -3500,7 +3624,7 @@
 
         function saveAnswer(field, value) { rsvpAnswers[field] = value; }
 
-        function nextStep(currentStepNum) {
+        function nextStep(currentStepNum, targetStepNum) {
             if (currentStepNum === 0) {
                 var name = document.getElementById('rsvp-name').value.trim();
                 if (!name) {
@@ -3515,7 +3639,7 @@
             }
 
             var current = document.getElementById('step-' + currentStepNum);
-            var nextNum = currentStepNum + 1;
+            var nextNum = targetStepNum !== undefined ? targetStepNum : currentStepNum + 1;
             var next = document.getElementById('step-' + nextNum);
 
             if (current) {
@@ -3530,6 +3654,7 @@
                     if (next) next.classList.add('active');
                 }, 300);
             }
+            // Actualiza los puntos dorados visualmente
             updateStepDots(nextNum - (window.GUEST && window.GUEST.nombre ? 1 : 0));
         }
 
@@ -3550,6 +3675,7 @@
                     asistencia_misa: rsvpAnswers.asistencia_misa || '—',
                     asistencia_recepcion: rsvpAnswers.asistencia_recepcion || '—',
                     puede_quedarse_final: rsvpAnswers.puede_quedarse_final || '—',
+                    mensaje: rsvpAnswers.mensaje || '—',
                     timestamp: rsvpAnswers.timestamp
                 })
             }).catch(function (err) { console.warn('Sheets error:', err); });
@@ -3560,6 +3686,7 @@
             fd.append('asistencia_misa', rsvpAnswers.asistencia_misa || '—');
             fd.append('asistencia_recepcion', rsvpAnswers.asistencia_recepcion || '—');
             fd.append('puede_quedarse_final', rsvpAnswers.puede_quedarse_final || '—');
+            fd.append('mensaje', rsvpAnswers.mensaje || '—');
             fd.append('timestamp', rsvpAnswers.timestamp);
             fd.append('_cc', 'abiiwtkms@gmail.com');
             fd.append('_subject', 'Nueva confirmación de asistencia — Maritza & Jadiel');
