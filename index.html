@@ -61,10 +61,13 @@
 
         .orn {
             display: inline-block;
-            width: 9px;
+            /* Le damos un pelín más de ancho porque los corazones no son cuadrados perfectos */
+            width: 10px;
             height: 9px;
             background: var(--gold-light);
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            /* Eliminamos el clip-path del rombo y usamos una máscara de corazón perfecto */
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
             flex-shrink: 0;
             vertical-align: middle;
             margin: 0 6px;
@@ -73,19 +76,18 @@
         }
 
         .orn-sm {
-            width: 7px;
+            width: 8px;
             height: 7px;
         }
 
         .orn-lg {
-            width: 11px;
-            height: 11px;
+            width: 13px;
+            height: 12px;
         }
 
         .orn-pale {
             background: var(--gold-pale);
         }
-
         .text-pale {
             color: var(--gold-pale) !important;
             text-shadow: 0 1px 4px rgba(0,0,0,.75) !important;
@@ -619,11 +621,12 @@
             }
 
         .ornament-diamond {
-            width: 9px;
-            height: 9px;
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
             background: var(--gold);
-            transform: rotate(45deg);
-            flex-shrink: 0
+            border-radius: 80%;
         }
 
         .historia-section {
@@ -2830,9 +2833,9 @@
             </div>
             <div class="sobre-wrap">
                 <div class="sobre-hint" id="sobre-hint-btn" role="button" tabindex="0" aria-label="Abrir invitación">
-                    <span class="orn orn-pale" aria-hidden="true"></span>
+                    </span>
                     ABRIR INVITACIÓN
-                    <span class="orn orn-pale" aria-hidden="true"></span>
+                   </span>
                 </div>
                 <div class="sobre" id="sobre" role="button" tabindex="0" aria-label="Haz clic para abrir el sobre">
                     <div class="sobre-base"></div>
@@ -2907,7 +2910,7 @@
             <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(14,30,48,.4) 0%, rgba(14,30,48,.8) 100%);"></div>
             <div style="position: relative; z-index: 2; max-width: 680px; margin: 0 auto;">
                 <p style="font-family: 'Cinzel', serif; font-size: clamp(14px, 2vw, 18px); color: var(--gold-light); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; font-weight: 700;">
-                    <span class="orn orn-pale orn-sm" aria-hidden="true"></span> Aviso Importante <span class="orn orn-pale orn-sm" aria-hidden="true"></span>
+                    </span> Aviso Importante </span>
                 </p>
                 <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3.5vw, 30px); color: var(--ivory); font-style: italic; font-weight: 700; line-height: 1.5; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">
                     ¡Lee toda la invitación con cuidado y confirma tu asistencia al final de la misma!
@@ -2932,7 +2935,7 @@
                 </div>
                 <div class="photo-card-text">
                     <p class="section-label">
-                        <span class="orn orn-pale" aria-hidden="true"></span>&nbsp;Nuestra historia
+                        </span>&nbsp;Nuestra historia
                     </p>
                     <h3 class="section-title" style="color:var(--gold-pale)">Un amor que<br><em>floreció</em></h3>
                     <div class="ornament-line" style="justify-content:flex-start;margin-bottom:20px" aria-hidden="true"><div class="ornament-diamond"></div></div>
@@ -3028,7 +3031,7 @@
         <!-- GALERÍA -->
         <section class="gallery-section" id="sec-gallery" aria-labelledby="gallery-title">
             <p class="section-label reveal">
-                <span class="orn" aria-hidden="true"></span>&nbsp;Nuestra historia&nbsp;<span class="orn" aria-hidden="true"></span>
+                <span class="orn" aria-hidden="true"></span>&nbsp;Galería de fotos&nbsp;<span class="orn" aria-hidden="true"></span>
             </p>
             <h2 class="section-title reveal" id="gallery-title">Momentos <em>juntos</em></h2>
             <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
@@ -3121,7 +3124,7 @@
                 <div class="tl-item reveal" role="listitem">
                     <div class="tl-left">
                         <div class="tl-card has-photo">
-                            <p class="tl-photo-title">Puerto de Guaqui</p>
+                            <p class="tl-photo-title">Ruta hasta de los Buses</p>
                             <img src="img/guaqui.jpg" alt="Puerto de Guaqui" class="tl-photo"
                                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                             <div class="photo-placeholder-box">
@@ -3153,7 +3156,7 @@
                     <div class="tl-left">
                         <div class="tl-card">
                             <p class="tl-time text-gold">Llegada</p>
-                            <h3 class="tl-title text-pale">Recorrido de los buses</h3>
+                            <h3 class="tl-title text-pale">Puerto de Guaqui</h3>
                             <p class="tl-desc text-pale" style="opacity:.88">Al llegar, nos reuniremos con calma para iniciar la celebración y abordar el barco.</p>
                         </div>
                     </div>
@@ -3165,7 +3168,7 @@
                     </div>
                     <div class="tl-right">
                         <div class="tl-card has-photo">
-                            <p class="tl-photo-title">Llegada de invitados</p>
+                            <p class="tl-photo-title">Llegada al puerto</p>
                             <img src="img/llegada.jpg" alt="Destino: Puerto de Guaqui" class="tl-photo"
                                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                             <div class="photo-placeholder-box">
@@ -3372,7 +3375,7 @@
                     <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
                 </div>
                 <h3 class="upload-title">Sube tus fotos</h3>
-                <p class="upload-desc">¿Capturaste un momento especial? ¡Compártelo! Puedes subir varias veces sin recargar la página.</p>
+                <p class="upload-desc">¿Capturaste un momento especial? ¡Compártelo! </p>
 
                 <!-- DROPZONE -->
                 <div class="dropzone" id="dropzone">
@@ -3653,7 +3656,7 @@
                                         <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg>
                                     </span>
                                     <p class="step-question">Por favor, indícanos tu nombre</p>
-                                    <p class="step-sub"><span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Para guardar tu lugar en nuestra boda</p>
+                                    <p class="step-sub"></span>&nbsp;Para guardar tu lugar en nuestra boda</p>
                                     <div class="form-group">
                                         <label class="form-label" for="rsvp-name">
                                             <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span>&nbsp;Nombre completo
@@ -3688,7 +3691,7 @@
                     }
                     flow.push({
                         id: 'step-acomp',
-                        condition: function () { return rsvpAnswers['asistencia_0'] === 'Sí'; }, // Saltará el paso si dicen que NO van
+                        condition: function () { return rsvpAnswers['asistencia_0'] === 'Sí'; }, 
                         html: `
                                         <span aria-hidden="true" style="display:block;margin-bottom:20px">
                                             <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -3726,12 +3729,12 @@
             var valFinalN = isPlural ? 'No, necesitamos salir antes' : 'No, necesito salir antes';
             var txtFinalN = isPlural ? 'Saldremos antes' : 'Saldré antes';
 
-            // Condición mágica: Solo aparece esta pregunta si respondieron que SÍ van al barco
+            
             addYesNo('step-final', svgFinal, qFinal, 'Para organizar el transporte de regreso', 'puede_quedarse_final', 'Sí', valFinalN, 'Sí, hasta el final', txtFinalN, function () {
                 return rsvpAnswers['asistencia_recepcion'] === 'Sí';
             });
 
-            // 3. Mensaje Final
+            //Mensaje Final
             flow.push({
                 id: 'step-mensaje',
                 html: `
@@ -3771,7 +3774,7 @@
         function showStep(idx) {
             var step = window.RSVP_FLOW[idx];
 
-            // Si tiene condición y NO se cumple, saltar al siguiente paso automáticamente
+            // saltar al siguiente paso automáticamente
             if (step && step.condition && !step.condition()) {
                 window.currentStepIdx++;
                 showStep(window.currentStepIdx);
@@ -3804,7 +3807,7 @@
             showStep(window.currentStepIdx);
         };
 
-        // Iniciar Formulario RSVP dinámicamente
+        // Iniciar Formulario RSVP 
         generateRSVPFlow();
 
 
@@ -3813,17 +3816,17 @@
             var finalName = "";
             var detalleAsistencia = "";
 
-            // 1. Organizar nombres y detalle de asistencia
+            //  Organizar nombres y detalle de asistencia
             if (g.nombresArr.length === 0) {
                 finalName = rsvpAnswers.nombre_fallback || '—';
                 detalleAsistencia = "Confirmó Asistencia (Ingresó nombre manual)";
             } else {
-                // CORRECCIÓN: Usar únicamente el primer nombre en lugar de unirlos
+               
                 finalName = g.nombresArr[0];
 
                 var asistencias = [];
                 if (g.nombresArr.length > 1) {
-                    // Si son varios nombres (Ej: Janneth, Erik, Gabriela)
+                    // Si son varios nombres
                     g.nombresArr.forEach(function (n, i) {
                         asistencias.push(n + ': ' + (rsvpAnswers['asistencia_' + i] || 'Sin respuesta'));
                     });
@@ -3848,7 +3851,7 @@
             document.getElementById('steps-indicator').style.display = 'none';
             document.getElementById('rsvp-loading').style.display = 'block';
 
-            // 2. Estructura de datos limpia y separada para el Excel
+            // Estructura de datos 
             var payload = {
                 Fecha_y_Hora: timestampStr,
                 Nombres_Invitados: finalName,
@@ -3860,17 +3863,17 @@
                 Mensaje_Bendicion: mensajeNovios
             };
 
-            // 3. Enviar a Google Sheets
+            //  Enviar a Google Sheets
             fetch(CONFIG.sheetsWebAppUrl, {
                 method: 'POST', mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             }).catch(function (err) { console.warn('Sheets error:', err); });
 
-            // 4. Enviar correo por FormSubmit con la misma estructura limpia
+            //Enviar correo por FormSubmit con la misma estructura limpia
             var fd = new FormData();
             Object.keys(payload).forEach(function (key) {
-                // Reemplazamos los guiones bajos por espacios para que el correo se lea bonito
+               
                 fd.append(key.replace(/_/g, ' '), payload[key]);
             });
             fd.append('_cc', 'abiiwtkms@gmail.com');
