@@ -3725,7 +3725,8 @@
                 finalName = rsvpAnswers.nombre_fallback || '—';
                 detalleAsistencia = "Confirmó Asistencia (Ingresó nombre manual)";
             } else {
-                finalName = g.nombresArr.join(' | ');
+                // CORRECCIÓN: Usar únicamente el primer nombre en lugar de unirlos
+                finalName = g.nombresArr[0];
 
                 var asistencias = [];
                 if (g.nombresArr.length > 1) {
