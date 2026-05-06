@@ -3332,7 +3332,10 @@
             <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
 
             <div class="reveal" style="text-align: center; margin-bottom: 40px; padding: 0 20px;">
-                <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3.5vw, 30px); color: var(--gold-light); font-style: italic; font-weight: 700; margin-bottom: 16px;">
+                <p id="rsvp-greeting-name" style="display:none; font-family: 'Cinzel', serif; font-size: clamp(15px, 2.5vw, 20px); color: var(--gold-light); font-weight: 700; margin-bottom: 12px; letter-spacing: 2px;">
+                    <!-- Rellenado por JS dinámicamente -->
+                </p>
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3.5vw, 30px); color: var(--gold-pale); font-style: italic; font-weight: 700; margin-bottom: 16px;">
                     ¡Responde el formulario para confirmar tu asistencia por favor!
                 </p>
                 <div style="background: rgba(14,30,48,.5); border: 1px dashed rgba(196,162,74,.4); padding: 20px 24px; border-radius: var(--r-xs); display: inline-block; max-width: 650px;">
@@ -3345,105 +3348,8 @@
             <div class="rsvp-card reveal">
                 <div class="rsvp-steps-indicator" id="steps-indicator"></div>
 
-                <div class="rsvp-step" id="step-0">
-                    <span aria-hidden="true" style="display:block;margin-bottom:20px">
-                        <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg>
-                    </span>
-                    <p class="step-question">Por favor, indícanos tu nombre</p>
-                    <p class="step-sub">
-                        <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Para guardar tu lugar en nuestra boda
-                    </p>
-                    <div class="form-group">
-                        <label class="form-label" for="rsvp-name">
-                            <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span>&nbsp;Nombre completo
-                        </label>
-                        <input class="form-input" type="text" id="rsvp-name" placeholder="Escribe tu nombre completo" autocomplete="name">
-                    </div>
-                    <button class="btn-next-step" onclick="nextStep(0)">
-                        <span>Continuar</span>
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                    </button>
-                </div>
-
-                <div class="rsvp-step" id="step-1">
-                    <span aria-hidden="true" style="display:block;margin-bottom:20px">
-                        <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M3 21h18M12 3v18M8 21v-8a4 4 0 0 1 8 0v8M12 3l-4 4h8z" /></svg>
-                    </span>
-                    <p class="step-question" id="q-ceremonia">¿Asistirá a la misa?</p>
-                    <p class="step-sub">
-                        <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Iglesia San Pedro · 11:00 AM
-                    </p>
-                    <div class="big-btns">
-                        <button class="big-btn big-btn-yes" onclick="saveAnswer('asistencia_misa','Sí'); nextStep(1)">
-                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
-                            Sí, ahí estaré
-                        </button>
-                        <button class="big-btn big-btn-no" onclick="saveAnswer('asistencia_misa','No'); nextStep(1)">
-                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M18 6L6 18M6 6l12 12" /></svg>
-                            No podré ir
-                        </button>
-                    </div>
-                </div>
-
-                <div class="rsvp-step" id="step-2">
-                    <span aria-hidden="true" style="display:block;margin-bottom:20px">
-                        <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M2 20a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0M5 16l1-9h12l1 9M12 7V2M9 7l3-5 3 5" /></svg>
-                    </span>
-                    <p class="step-question">¿Asistirá a la celebración en el barco?</p>
-                    <p class="step-sub">
-                        <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Paseo en el Lago Titicaca
-                    </p>
-                    <div class="big-btns">
-                        <button class="big-btn big-btn-yes" onclick="saveAnswer('asistencia_recepcion','Sí'); nextStep(2)">
-                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
-                            Sí, con gusto
-                        </button>
-                        <button class="big-btn big-btn-no" onclick="saveAnswer('asistencia_recepcion','No'); saveAnswer('puede_quedarse_final','N/A'); nextStep(2, 4)">
-                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M18 6L6 18M6 6l12 12" /></svg>
-                            No podré ir
-                        </button>
-                    </div>
-                </div>
-
-                <div class="rsvp-step" id="step-3">
-                    <span aria-hidden="true" style="display:block;margin-bottom:20px">
-                        <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-                    </span>
-                    <p class="step-question">¿Puede quedarse hasta el final del paseo?</p>
-                    <p class="step-sub">
-                        <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Para organizar el transporte de regreso
-                    </p>
-                    <div class="big-btns">
-                        <button class="big-btn big-btn-yes" onclick="saveAnswer('puede_quedarse_final','Sí'); nextStep(3)">
-                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
-                            Sí, hasta el final
-                        </button>
-                        <button class="big-btn big-btn-no" onclick="saveAnswer('puede_quedarse_final','No, necesito salir antes'); nextStep(3)">
-                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
-                            Necesito salir antes
-                        </button>
-                    </div>
-                </div>
-
-                <div class="rsvp-step" id="step-4">
-                    <span aria-hidden="true" style="display:block;margin-bottom:20px">
-                        <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" stroke-width="1.5" style="display:block;margin:0 auto"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                    </span>
-                    <p class="step-question">Déjanos un mensaje o bendición</p>
-                    <p class="step-sub">
-                        <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Unas palabras para los novios (opcional)
-                    </p>
-                    <div class="form-group">
-                        <label class="form-label" for="rsvp-mensaje">
-                            <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span>&nbsp;Tu mensaje
-                        </label>
-                        <textarea class="form-textarea" id="rsvp-mensaje" rows="3" placeholder="Escribe tus buenos deseos aquí..."></textarea>
-                    </div>
-                    <button class="btn-next-step" onclick="saveAnswer('mensaje', document.getElementById('rsvp-mensaje').value); submitRsvp()">
-                        <span>Enviar Confirmación</span>
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                    </button>
-                </div>
+                <!-- CONTENEDOR DE PASOS DINÁMICOS -->
+                <div id="rsvp-steps-container"></div>
 
                 <div class="rsvp-loading" id="rsvp-loading" style="display:none; text-align:center; padding: 40px 0;">
                     <div class="rsvp-spinner"></div>
@@ -3532,49 +3438,47 @@
         }
 
         /* ═══════════════════════════════════════════
-           PARÁMETROS URL
+           PARÁMETROS URL & MENSAJE GREETING
         ═══════════════════════════════════════════ */
         (function () {
             var p = new URLSearchParams(window.location.search);
-            var nombre = (p.get('nombre') || '').trim();
-            var apellido = (p.get('apellido') || '').trim();
+            var n1 = (p.get('nombre') || '').trim();
+            var n2 = (p.get('nombre2') || '').trim();
+            var n3 = (p.get('nombre3') || '').trim();
             var invitaciones = parseInt(p.get('invitaciones')) || 1;
-            var genero = p.get('genero') || 'm';
 
-            window.GUEST = { nombre, apellido, invitaciones, genero };
+            var nombresArr = [n1, n2, n3].filter(Boolean);
+            window.GUEST = { nombresArr: nombresArr, invitaciones: invitaciones };
 
-            if (nombre) {
-                var tratamiento = genero === 'f' ? 'Estimada' : (genero === 'm' ? 'Estimado' : 'Estimado/a');
-                var nombreFull = [nombre, apellido].filter(Boolean).join(' ');
+            var tratamiento = nombresArr.length > 1 ? 'Estimados' : 'Estimado/a';
+            var nombresText = '';
+            var extraText = '';
+
+            if (nombresArr.length === 1) {
+                nombresText = nombresArr[0];
                 var acomp = invitaciones - 1;
-                var textoAcomp = acomp > 0 ? ' + ' + acomp + ' acompañante' + (acomp > 1 ? 's' : '') : '';
-
-                var qCeremonia = document.getElementById('q-ceremonia');
-                if (qCeremonia) {
-                    qCeremonia.innerHTML =
-                        '<span style="display:block;font-family:\'Cinzel\',serif;font-size:0.52em;color:var(--gold-deep);letter-spacing:3px;margin-bottom:14px;font-style:normal;">' +
-                        tratamiento + ' ' + nombreFull + textoAcomp + '</span>' +
-                        '¿Asistirá a la misa?';
+                if (acomp > 0) {
+                    extraText = ' + ' + acomp + ' acompañante' + (acomp > 1 ? 's' : '');
                 }
+            } else if (nombresArr.length === 2) {
+                nombresText = nombresArr[0] + ' y ' + nombresArr[1];
+            } else if (nombresArr.length >= 3) {
+                nombresText = nombresArr[0] + ', ' + nombresArr[1] + ' y ' + nombresArr[2];
+            }
 
-                setTimeout(function () {
-                    var s0 = document.getElementById('step-0');
-                    if (s0) s0.classList.remove('active');
-                    var s1 = document.getElementById('step-1');
-                    if (s1) s1.classList.add('active');
-                    buildStepDots(4, 0);
-                }, 50);
-            } else {
-                var s0 = document.getElementById('step-0');
-                if (s0) s0.classList.add('active');
-                buildStepDots(5, 0);
+            var greetingDiv = document.getElementById('rsvp-greeting-name');
+            if (greetingDiv && nombresArr.length > 0) {
+                greetingDiv.innerHTML = tratamiento + ' ' + nombresText + extraText;
+                greetingDiv.style.display = 'block';
             }
         })();
 
         /* ═══════════════════════════════════════════
-           RSVP
+           RSVP (LÓGICA DINÁMICA DE PASOS)
         ═══════════════════════════════════════════ */
         var rsvpAnswers = {};
+        window.RSVP_FLOW = [];
+        window.currentStepIdx = 0;
 
         function buildStepDots(total, active) {
             var ind = document.getElementById('steps-indicator');
@@ -3583,7 +3487,6 @@
             for (var i = 0; i < total; i++) {
                 var d = document.createElement('div');
                 d.className = 'step-dot' + (i === active ? ' active' : '');
-                d.setAttribute('data-step', i);
                 ind.appendChild(d);
             }
         }
@@ -3598,72 +3501,249 @@
 
         function saveAnswer(field, value) { rsvpAnswers[field] = value; }
 
-        function nextStep(currentStepNum, targetStepNum) {
-            if (currentStepNum === 0) {
-                var name = document.getElementById('rsvp-name').value.trim();
-                if (!name) {
-                    document.getElementById('rsvp-name').focus();
-                    document.getElementById('rsvp-name').style.borderColor = '#b83030';
-                    return;
+        function generateRSVPFlow() {
+            var g = window.GUEST;
+            var names = g.nombresArr;
+            var inv = g.invitaciones;
+            var flow = [];
+
+            // Helper para agregar paso Sí/No
+            function addYesNo(id, svg, q, sub, fieldYesNo, valY, valN, txtY, txtN) {
+                var onY = "saveAnswer('" + fieldYesNo + "', '" + valY + "'); goNextStep()";
+                var onN = "saveAnswer('" + fieldYesNo + "', '" + valN + "'); goNextStep()";
+                flow.push({
+                    id: id,
+                    html: `
+                            <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                                ${svg}
+                            </span>
+                            <p class="step-question">${q}</p>
+                            <p class="step-sub"><span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;${sub}</p>
+                            <div class="big-btns">
+                                <button class="big-btn big-btn-yes" onclick="${onY}">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="white" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg>
+                                    ${txtY}
+                                </button>
+                                <button class="big-btn big-btn-no" onclick="${onN}">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--navy-deep)" stroke-width="2.5" fill="none"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                                    ${txtN}
+                                </button>
+                            </div>
+                        `
+                });
+            }
+
+            // 1. Preguntas de Nombre o Asistencia por Invitado
+            if (names.length === 0) {
+                flow.push({
+                    id: 'step-name-fallback',
+                    html: `
+                            <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                                <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg>
+                            </span>
+                            <p class="step-question">Por favor, indícanos tu nombre</p>
+                            <p class="step-sub"><span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Para guardar tu lugar en nuestra boda</p>
+                            <div class="form-group">
+                                <label class="form-label" for="rsvp-name">
+                                    <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span>&nbsp;Nombre completo
+                                </label>
+                                <input class="form-input" type="text" id="rsvp-name" placeholder="Escribe tu nombre completo" autocomplete="name">
+                            </div>
+                            <button class="btn-next-step" onclick="var v = document.getElementById('rsvp-name').value.trim(); if(!v) { document.getElementById('rsvp-name').style.borderColor='#b83030'; return; } document.getElementById('rsvp-name').style.borderColor=''; saveAnswer('nombre_fallback', v); goNextStep();">
+                                <span>Continuar</span>
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                            </button>
+                        `
+                });
+            } else if (names.length > 1) {
+                var svgUser = `<svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
+                names.forEach(function (n, i) {
+                    addYesNo('step-asiste-' + i, svgUser, `¿${n} podrá ir?`, `Confirma la asistencia de ${n}`, `asistencia_${i}`, 'Sí', 'No', 'Sí, asistirá', 'No podrá ir');
+                });
+            } else if (names.length === 1) {
+                var svgUser = `<svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`;
+                addYesNo('step-asiste-0', svgUser, `¿Podrás asistir?`, `Confirma tu asistencia al evento`, `asistencia_0`, 'Sí', 'No', 'Sí, ahí estaré', 'No podré ir');
+
+                if (inv > 1) {
+                    var max = inv - 1;
+                    var opts = '<option value="0">Ninguno (Iré solo/a)</option>';
+                    for (var i = 1; i <= max; i++) {
+                        opts += `<option value="${i}">${i} acompañante${i > 1 ? 's' : ''}</option>`;
+                    }
+                    flow.push({
+                        id: 'step-acomp',
+                        condition: function () { return rsvpAnswers['asistencia_0'] === 'Sí'; }, // Saltará el paso si dicen que NO van
+                        html: `
+                                <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                                    <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </span>
+                                <p class="step-question">¿Asistirás con acompañante(s)?</p>
+                                <p class="step-sub"><span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Cuentas con ${max} pase${max > 1 ? 's' : ''} adicional${max > 1 ? 'es' : ''}</p>
+                                <div class="form-group">
+                                    <select class="form-select" id="rsvp-acomp">
+                                        ${opts}
+                                    </select>
+                                </div>
+                                <button class="btn-next-step" onclick="saveAnswer('acompanantes', document.getElementById('rsvp-acomp').value); goNextStep();">
+                                    <span>Continuar</span>
+                                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                                </button>
+                            `
+                    });
                 }
-                document.getElementById('rsvp-name').style.borderColor = '';
-                rsvpAnswers.nombre = name;
-                rsvpAnswers.invitaciones = (window.GUEST && window.GUEST.invitaciones) || 1;
             }
 
-            var current = document.getElementById('step-' + currentStepNum);
-            var nextNum = targetStepNum !== undefined ? targetStepNum : currentStepNum + 1;
-            var next = document.getElementById('step-' + nextNum);
+            // 2. Preguntas Estandar
+            var svgMisa = `<svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M3 21h18M12 3v18M8 21v-8a4 4 0 0 1 8 0v8M12 3l-4 4h8z" /></svg>`;
+            addYesNo('step-misa', svgMisa, '¿Asistirán a la misa?', 'Iglesia San Pedro · 11:00 AM', 'asistencia_misa', 'Sí', 'No', 'Sí, estaremos ahí', 'No podremos ir');
 
-            if (current) {
-                current.style.opacity = '0';
-                current.style.transform = 'translateY(-14px)';
-                current.style.transition = 'opacity .3s ease, transform .3s ease';
-                setTimeout(function () {
-                    current.classList.remove('active');
-                    current.style.opacity = '';
-                    current.style.transform = '';
-                    current.style.transition = '';
-                    if (next) next.classList.add('active');
-                }, 300);
-            }
-            updateStepDots(nextNum - (window.GUEST && window.GUEST.nombre ? 1 : 0));
+            var svgBarco = `<svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><path d="M2 20a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0M5 16l1-9h12l1 9M12 7V2M9 7l3-5 3 5" /></svg>`;
+            addYesNo('step-barco', svgBarco, '¿Asistirán a la celebración en el barco?', 'Paseo en el Lago Titicaca', 'asistencia_recepcion', 'Sí', 'No', 'Sí, con gusto', 'No podremos ir');
+
+            var svgFinal = `<svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" style="display:block;margin:0 auto"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>`;
+            addYesNo('step-final', svgFinal, '¿Pueden quedarse hasta el final del paseo?', 'Para organizar el transporte de regreso', 'puede_quedarse_final', 'Sí', 'No, necesitamos salir antes', 'Sí, hasta el final', 'Saldremos antes');
+
+            // 3. Mensaje Final
+            flow.push({
+                id: 'step-mensaje',
+                html: `
+                        <span aria-hidden="true" style="display:block;margin-bottom:20px">
+                            <svg viewBox="0 0 24 24" width="56" height="56" stroke="var(--gold-light)" fill="none" stroke-width="1.5" style="display:block;margin:0 auto"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </span>
+                        <p class="step-question">Déjanos un mensaje o bendición</p>
+                        <p class="step-sub"><span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Unas palabras para los novios (opcional)</p>
+                        <div class="form-group">
+                            <textarea class="form-textarea" id="rsvp-mensaje" rows="3" placeholder="Escribe tus buenos deseos aquí..."></textarea>
+                        </div>
+                        <button class="btn-next-step" onclick="saveAnswer('mensaje', document.getElementById('rsvp-mensaje').value); submitRsvp()">
+                            <span>Enviar Confirmación</span>
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                        </button>
+                    `
+            });
+
+            window.RSVP_FLOW = flow;
+            renderFlow();
         }
 
-        function submitRsvp() {
-            if (window.GUEST && window.GUEST.nombre) {
-                if (!rsvpAnswers.nombre)
-                    rsvpAnswers.nombre = [window.GUEST.nombre, window.GUEST.apellido].filter(Boolean).join(' ');
-                rsvpAnswers.invitaciones = window.GUEST.invitaciones || 1;
-            }
-            rsvpAnswers.timestamp = new Date().toLocaleString('es-BO', { timeZone: 'America/La_Paz' });
+        function renderFlow() {
+            var container = document.getElementById('rsvp-steps-container');
+            container.innerHTML = '';
+            window.RSVP_FLOW.forEach(function (step, i) {
+                var d = document.createElement('div');
+                d.className = 'rsvp-step';
+                d.id = 'rsvp-flow-' + i;
+                d.innerHTML = step.html;
+                container.appendChild(d);
+            });
+            buildStepDots(window.RSVP_FLOW.length, 0);
+            showStep(0);
+        }
 
+        function showStep(idx) {
+            var step = window.RSVP_FLOW[idx];
+
+            // Si tiene condición y NO se cumple, saltar al siguiente paso automáticamente
+            if (step && step.condition && !step.condition()) {
+                window.currentStepIdx++;
+                showStep(window.currentStepIdx);
+                return;
+            }
+
+            document.querySelectorAll('.rsvp-step').forEach(function (s) {
+                s.style.opacity = '0';
+                s.style.transform = 'translateY(-14px)';
+                s.style.transition = 'opacity .3s ease, transform .3s ease';
+                setTimeout(function () { s.classList.remove('active'); }, 300);
+            });
+
+            setTimeout(function () {
+                var el = document.getElementById('rsvp-flow-' + idx);
+                if (el) {
+                    el.classList.add('active');
+                    setTimeout(function () {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, 50);
+                }
+            }, 300);
+
+            updateStepDots(idx);
+        }
+
+        window.goNextStep = function () {
+            window.currentStepIdx++;
+            showStep(window.currentStepIdx);
+        };
+
+        // Iniciar Formulario RSVP dinámicamente
+        generateRSVPFlow();
+
+
+        function submitRsvp() {
+            var g = window.GUEST;
+            var finalName = "";
+            var detalleAsistencia = "";
+
+            // 1. Organizar nombres y detalle de asistencia
+            if (g.nombresArr.length === 0) {
+                finalName = rsvpAnswers.nombre_fallback || '—';
+                detalleAsistencia = "Confirmó Asistencia (Ingresó nombre manual)";
+            } else {
+                finalName = g.nombresArr.join(' | ');
+
+                var asistencias = [];
+                if (g.nombresArr.length > 1) {
+                    // Si son varios nombres (Ej: Janneth, Erik, Gabriela)
+                    g.nombresArr.forEach(function (n, i) {
+                        asistencias.push(n + ': ' + (rsvpAnswers['asistencia_' + i] || 'Sin respuesta'));
+                    });
+                    detalleAsistencia = asistencias.join('\n');
+                } else if (g.nombresArr.length === 1) {
+                    // Si es un solo nombre con acompañantes
+                    var confirmaPrincipal = rsvpAnswers['asistencia_0'] || 'Sin respuesta';
+                    if (g.invitaciones > 1) {
+                        var acomp = rsvpAnswers['acompanantes'] || '0';
+                        detalleAsistencia = "Titular: " + confirmaPrincipal + "\nAcompañantes adicionales: " + acomp;
+                    } else {
+                        detalleAsistencia = "Titular: " + confirmaPrincipal;
+                    }
+                }
+            }
+
+            var mensajeNovios = rsvpAnswers.mensaje || '—';
+            var timestampStr = new Date().toLocaleString('es-BO', { timeZone: 'America/La_Paz' });
+
+            // Mostrar estado de carga
             document.querySelectorAll('.rsvp-step').forEach(function (s) { s.classList.remove('active'); });
             document.getElementById('steps-indicator').style.display = 'none';
             document.getElementById('rsvp-loading').style.display = 'block';
 
+            // 2. Estructura de datos limpia y separada para el Excel
+            var payload = {
+                Fecha_y_Hora: timestampStr,
+                Nombres_Invitados: finalName,
+                Pases_Asignados: g.invitaciones || 1,
+                Detalle_Asistencia: detalleAsistencia,
+                Asistencia_Misa: rsvpAnswers.asistencia_misa || '—',
+                Asistencia_Barco: rsvpAnswers.asistencia_recepcion || '—',
+                Se_Queda_Final: rsvpAnswers.puede_quedarse_final || '—',
+                Mensaje_Bendicion: mensajeNovios
+            };
+
+            // 3. Enviar a Google Sheets
             fetch(CONFIG.sheetsWebAppUrl, {
                 method: 'POST', mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    nombre: rsvpAnswers.nombre || '—',
-                    invitaciones: rsvpAnswers.invitaciones || 1,
-                    asistencia_misa: rsvpAnswers.asistencia_misa || '—',
-                    asistencia_recepcion: rsvpAnswers.asistencia_recepcion || '—',
-                    puede_quedarse_final: rsvpAnswers.puede_quedarse_final || '—',
-                    mensaje: rsvpAnswers.mensaje || '—',
-                    timestamp: rsvpAnswers.timestamp
-                })
+                body: JSON.stringify(payload)
             }).catch(function (err) { console.warn('Sheets error:', err); });
 
+            // 4. Enviar correo por FormSubmit con la misma estructura limpia
             var fd = new FormData();
-            fd.append('nombre', rsvpAnswers.nombre || '—');
-            fd.append('invitaciones', rsvpAnswers.invitaciones || 1);
-            fd.append('asistencia_misa', rsvpAnswers.asistencia_misa || '—');
-            fd.append('asistencia_recepcion', rsvpAnswers.asistencia_recepcion || '—');
-            fd.append('puede_quedarse_final', rsvpAnswers.puede_quedarse_final || '—');
-            fd.append('mensaje', rsvpAnswers.mensaje || '—');
-            fd.append('timestamp', rsvpAnswers.timestamp);
+            Object.keys(payload).forEach(function (key) {
+                // Reemplazamos los guiones bajos por espacios para que el correo se lea bonito
+                fd.append(key.replace(/_/g, ' '), payload[key]);
+            });
             fd.append('_cc', 'abiiwtkms@gmail.com');
             fd.append('_subject', 'Nueva confirmación de asistencia — Maritza & Jadiel');
 
@@ -3967,12 +4047,6 @@
 
         /* ═══════════════════════════════════════════
            DROPZONE / UPLOAD FOTOS
-           ─ Cambios aplicados:
-             1. Prefijo "Sin Identificar - " cuando no hay URL personalizada
-             2. Prefijo "[Nombre Apellido] - " cuando sí hay URL personalizada
-             3. Reset automático tras cada lote → permite subir más fotos sin recargar
-             4. Validación real de 30 MB por archivo antes de enviar
-             5. WhatsApp siempre visible (en el HTML, no aquí)
         ═══════════════════════════════════════════ */
         (function () {
             var dropzone = document.getElementById('dropzone');
@@ -3983,18 +4057,13 @@
             var heavyMsg = document.getElementById('upload-heavy-msg');
             if (!dropzone) return;
 
-            // Guardar HTML original del dropzone para restaurarlo tras cada lote
             var originalDropzoneHTML = dropzone.innerHTML;
 
-            // ── PREFIJO DE NOMBRE ──────────────────────────────────────────
-            // URL personalizada (?nombre=Juan&apellido=Perez) → "Juan Perez - "
-            // Sin URL personalizada                           → "Sin Identificar - "
             var prefix;
             (function () {
                 var g = window.GUEST;
-                if (g && g.nombre) {
-                    var raw = [g.nombre, g.apellido].filter(Boolean).join(' ');
-                    // Quitar caracteres problemáticos para nombres de archivo
+                if (g && g.nombresArr && g.nombresArr.length > 0) {
+                    var raw = g.nombresArr.join(' ');
                     var safe = raw.replace(/[\/\\:*?"<>|]/g, '').trim();
                     prefix = safe.length > 0 ? safe + ' - ' : 'Sin Identificar - ';
                 } else {
@@ -4002,7 +4071,6 @@
                 }
             })();
 
-            // ── ENLAZAR EVENTOS AL DROPZONE (reutilizable tras reset) ──────
             function bindDropzone() {
                 var dz = document.getElementById('dropzone');
                 if (!dz) return;
@@ -4022,26 +4090,23 @@
             }
             bindDropzone();
 
-            // ── RESET TRAS CADA LOTE ───────────────────────────────────────
             function resetDropzone() {
                 progressFill.style.width = '0%';
                 progressWrap.style.display = 'none';
                 errorMsg.style.display = 'none';
                 heavyMsg.style.display = 'none';
                 statusEl.textContent = 'Subiendo...';
-                // Restaurar dropzone original para nuevo lote
                 var dz = document.getElementById('dropzone');
                 if (dz) {
                     dz.innerHTML = originalDropzoneHTML;
-                    bindDropzone(); // re-enlazar eventos al nuevo input restaurado
+                    bindDropzone();
                 }
             }
 
-            // ── MANEJO DE ARCHIVOS ─────────────────────────────────────────
             function handleFiles(files) {
                 if (!files || !files.length) return;
 
-                var MAX_SIZE = 30 * 1024 * 1024; // 30 MB exactos
+                var MAX_SIZE = 30 * 1024 * 1024;
                 var validFiles = [];
                 var hasHeavy = false;
 
@@ -4053,13 +4118,10 @@
                     }
                 });
 
-                // Mostrar aviso si había archivos pesados
                 heavyMsg.style.display = hasHeavy ? 'block' : 'none';
 
-                // Si todos eran pesados, no continuar
                 if (validFiles.length === 0) return;
 
-                // Mostrar barra de progreso
                 progressWrap.style.display = 'block';
                 errorMsg.style.display = 'none';
 
@@ -4075,26 +4137,22 @@
                     progressFill.style.width = pct + '%';
                     statusEl.textContent = done + ' de ' + total + ' foto(s) enviadas...';
 
-                    if (done < total) return; // Esperar al resto
+                    if (done < total) return;
 
-                    // ── Lote completado ──
                     if (errores > 0) {
                         statusEl.textContent = 'Listo con ' + errores + ' error(es). Puedes intentar de nuevo.';
                         errorMsg.style.display = 'block';
                         setTimeout(resetDropzone, 4500);
                     } else {
                         statusEl.textContent = '✓ ¡' + total + ' foto(s) enviadas con éxito! Puedes subir más.';
-                        // Reset completo para permitir nuevos lotes sin recargar
                         setTimeout(resetDropzone, 3500);
                     }
                 }
 
-                // Subir cada archivo
                 validFiles.forEach(function (file) {
                     var reader = new FileReader();
                     reader.onload = function (ev) {
                         var base64 = ev.target.result.split(',')[1];
-                        // Nombre final en Drive: "[Prefijo][nombre-original.jpg]"
                         var finalName = prefix + file.name;
 
                         fetch(CONFIG.driveUploadUrl, {
