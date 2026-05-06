@@ -497,40 +497,75 @@
 
         .hero-scroll {
             position: absolute;
-            bottom: 44px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 4;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            color: rgba(238,222,166,.75);
+            gap: 6px;
+            color: var(--gold-pale);
             font-family: 'Cinzel', serif;
             font-size: 11px;
             font-weight: 700;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             opacity: 0;
-            animation: fadeIn 1s 1.4s ease forwards, scroll-bounce 2.4s 2.4s ease-in-out infinite;
+            animation: fadeIn 1s 1.4s ease forwards;
+            cursor: pointer;
         }
 
-            .hero-scroll svg {
-                width: 22px;
-                height: 22px;
-                stroke: var(--gold-pale);
-                fill: none
+   
+        .scroll-chevrons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .scroll-chevron {
+            width: 26px;
+            height: 26px;
+            stroke: var(--gold-light);
+            stroke-width: 1.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            animation: arrow-pulse 2s infinite;
+        }
+
+            .scroll-chevron.c-1 {
+                animation-delay: 0s;
             }
 
-        @keyframes scroll-bounce {
-            0%,100% {
-                transform: translateX(-50%) translateY(0)
+            .scroll-chevron.c-2 {
+                animation-delay: 0.15s;
+                margin-top: -16px;
+            }
+
+            .scroll-chevron.c-3 {
+                animation-delay: 0.3s;
+                margin-top: -16px;
+            }
+
+        @keyframes arrow-pulse {
+            0% {
+                opacity: 0;
+                transform: translateY(-8px);
             }
 
             50% {
-                transform: translateX(-50%) translateY(9px)
+                opacity: 1;
+                transform: translateY(0);
+                filter: drop-shadow(0 0 4px rgba(196,162,74,0.6));
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(8px);
             }
         }
+        
 
         .section-label {
             font-family: 'Cinzel', serif;
@@ -2856,9 +2891,14 @@
                 </div>
             </div>
             <div class="hero-scroll" aria-hidden="true">
-                <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 5v14M5 12l7 7-7-7" /></svg>
-                <span>Desplaza</span>
-            </div>
+                <div class="hero-scroll" aria-hidden="true" onclick="document.getElementById('sec-important').scrollIntoView({ behavior: 'smooth' });">
+                    
+                    <div class="scroll-chevrons">
+                        <svg class="scroll-chevron c-1" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+                        <svg class="scroll-chevron c-2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+                        <svg class="scroll-chevron c-3" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+                    </div>
+                </div>
         </section>
 
         <!-- MENSAJE IMPORTANTE INICIAL -->
