@@ -59,7 +59,6 @@
             font-weight: 600;
         }
 
-        /* ── ORNAMENTO CSS ── */
         .orn {
             display: inline-block;
             width: 9px;
@@ -116,7 +115,6 @@
                     background: linear-gradient(to left, transparent, var(--gold-light));
                 }
 
-        /* ── PÉTALOS ── */
         #petals-canvas {
             position: fixed;
             inset: 0;
@@ -124,7 +122,6 @@
             z-index: 9999;
         }
 
-        /* ══════════ WATERCOLOR TRANSITIONS ══════════ */
         .reveal {
             opacity: 0;
             transform: translateY(28px);
@@ -164,26 +161,6 @@
             animation: wc-bloom 1.5s var(--ease-organic) both;
         }
 
-        @keyframes ink-wash {
-            0% {
-                opacity: 0;
-                clip-path: ellipse(0% 0% at 50% 50%);
-                filter: blur(30px);
-            }
-
-            50% {
-                filter: blur(10px);
-                opacity: 0.6;
-            }
-
-            100% {
-                opacity: 1;
-                clip-path: ellipse(150% 150% at 50% 50%);
-                filter: blur(0);
-            }
-        }
-
-        /* ══════════ LANDING ══════════ */
         #landing {
             position: fixed;
             inset: 0;
@@ -252,7 +229,6 @@
                 font-size: 11px;
             }
 
-        /* Sobre */
         .sobre-wrap {
             margin-top: 30px;
             animation: fadeUp .9s .55s ease both;
@@ -413,14 +389,12 @@
             transform: translate(-50%,-50%) scale(0)
         }
 
-        /* ══════════ CONTENIDO ══════════ */
         #contenido {
             display: none;
             position: relative;
             z-index: 1;
         }
 
-        /* ══════════ HERO ══════════ */
         .hero {
             position: relative;
             height: 100svh;
@@ -558,7 +532,6 @@
             }
         }
 
-        /* ══════════ SECCIONES COMPARTIDAS ══════════ */
         .section-label {
             font-family: 'Cinzel', serif;
             font-size: clamp(13px, 1.8vw, 15px);
@@ -618,7 +591,6 @@
             flex-shrink: 0
         }
 
-        /* ══════════ HISTORIA ══════════ */
         .historia-section {
             padding: 92px 24px;
             background: var(--linen);
@@ -757,7 +729,6 @@
                     background: linear-gradient(to right, rgba(196,162,74,.45), transparent)
                 }
 
-        /* ══════════ COUNTDOWN ══════════ */
         .countdown-section {
             padding: 92px 20px;
             text-align: center;
@@ -921,7 +892,6 @@
                 letter-spacing: 2px;
             }
 
-        /* ══════════ GALERÍA ══════════ */
         .gallery-section {
             padding: 92px 24px;
             background: var(--parch);
@@ -1122,7 +1092,6 @@
                 color: var(--gold-light)
             }
 
-        /* ══════════ ITINERARIO ══════════ */
         .itinerary-section {
             padding: 92px 20px;
             background: var(--navy-deep);
@@ -1226,7 +1195,6 @@
                 background: rgba(138,111,59,.07);
             }
 
-        /* Título antes de cada foto */
         .tl-photo-title {
             font-family: 'Cinzel', serif;
             font-size: clamp(11px, 1.5vw, 13px);
@@ -1310,7 +1278,6 @@
                 fill: none
             }
 
-        /* Mapa dentro del itinerario */
         .tl-map-label {
             font-family: 'Cinzel', serif;
             font-size: clamp(11px, 1.4vw, 12px);
@@ -1338,7 +1305,6 @@
                 border: 0;
             }
 
-        /* ══════════ FOTO BANDA ══════════ */
         .foto-banda {
             height: 380px;
             position: relative;
@@ -1400,7 +1366,6 @@
                 font-style: normal;
             }
 
-        /* ══════════ DRESS CODE ══════════ */
         .dresscode-section {
             padding: 92px 24px;
             background: var(--parch);
@@ -1507,7 +1472,6 @@
             background: rgba(138,111,59,.35);
         }
 
-        /* ══════════ MÚSICA ══════════ */
         .music-section {
             padding: 92px 20px;
             background: #0a1622;
@@ -1665,264 +1629,49 @@
             font-family: 'Cinzel', serif
         }
 
-        /* ══════════ RSVP ══════════ */
-        .rsvp-section {
-            padding: 92px 20px 112px;
-            background: var(--navy-deep);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-            .rsvp-section .ornament-line::before {
-                background: linear-gradient(to left, rgba(196,162,74,.45), transparent)
-            }
-
-            .rsvp-section .ornament-line::after {
-                background: linear-gradient(to right, rgba(196,162,74,.45), transparent)
-            }
-
-        .rsvp-card {
-            max-width: 620px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: var(--r-lg);
-            padding: 56px 48px;
-            box-shadow: var(--shadow-deep), 0 0 0 1px rgba(138,111,59,.16);
-            position: relative;
-            border: 1px solid rgba(138,111,59,.18);
-            overflow: hidden;
-        }
-
-            .rsvp-card::before {
-                content: '';
-                position: absolute;
-                inset: 10px;
-                border: 1px dashed rgba(138,111,59,.25);
-                border-radius: calc(var(--r-lg) - 6px);
-                pointer-events: none
-            }
-
-        .rsvp-steps-indicator {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 44px;
-            align-items: center;
-        }
-
-        .step-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: rgba(138,111,59,.1);
-            border: 2px solid var(--gold);
-            transition: var(--t);
-        }
-
-            .step-dot.active {
-                background: var(--gold);
-                border-color: var(--gold-deep);
-                transform: scale(1.4);
-            }
-
-            .step-dot.done {
-                background: rgba(138,111,59,.38);
-                border-color: var(--gold);
-            }
-
-        .rsvp-step {
-            display: none;
-            animation: fadeIn .5s ease both;
-        }
-
-            .rsvp-step.active {
-                display: block;
-            }
-
-        .step-question {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(26px, 4.2vw, 38px);
-            font-weight: 700;
-            color: var(--navy-deep);
-            margin-bottom: 10px;
-            line-height: 1.3;
-            font-style: italic;
-        }
-
-        .step-sub {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(14px, 2.2vw, 18px);
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--slate);
-            text-transform: uppercase;
-            margin-bottom: 36px;
-            line-height: 1.55;
+        .volume-wrap {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0;
+            gap: 12px;
+            margin-top: 18px;
         }
 
-        .big-btns {
-            display: flex;
-            gap: 18px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 8px;
-        }
-
-        .big-btn {
-            min-width: 190px;
-            min-height: 78px;
-            padding: 22px 38px;
-            border-radius: var(--r-xs);
-            font-family: 'Cinzel', serif;
-            font-size: clamp(15px, 2.3vw, 19px);
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--t);
-            border: 2px solid var(--gold);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .big-btn-yes {
-            background: var(--gold);
-            color: var(--white);
-        }
-
-            .big-btn-yes:hover {
-                background: var(--gold-light);
-                transform: translateY(-3px);
-                box-shadow: 0 10px 32px rgba(138,111,59,.38);
+            .volume-wrap svg {
+                width: 20px;
+                height: 20px;
+                fill: rgba(255,255,255,.45);
             }
 
-        .big-btn-no {
-            background: transparent;
-            color: var(--navy-deep);
-            border-color: rgba(26,41,63,.32);
-        }
-
-            .big-btn-no:hover {
-                background: rgba(26,41,63,.06);
-                transform: translateY(-3px);
-            }
-
-        .form-group {
-            margin-bottom: 24px;
-            text-align: left
-        }
-
-        .form-label {
-            display: block;
-            font-family: 'Cinzel', serif;
-            font-size: clamp(13px, 1.9vw, 16px);
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold-deep);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 0;
-        }
-
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            padding: 20px 24px;
-            border: 1.5px solid rgba(138,111,59,.32);
-            border-radius: var(--r-xs);
-            font-family: 'EB Garamond', serif;
-            font-size: clamp(19px, 2.4vw, 22px);
-            font-weight: 600;
-            color: var(--navy-deep);
-            background: var(--ivory);
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 140px;
+            height: 4px;
+            background: rgba(255,255,255,.12);
+            border-radius: 2px;
             outline: none;
-            transition: border-color .3s, box-shadow .3s;
-            appearance: none;
         }
 
-            .form-input:focus, .form-select:focus, .form-textarea:focus {
-                border-color: var(--gold);
-                box-shadow: 0 0 0 4px rgba(138,111,59,.16);
-            }
-
-        .btn-next-step {
-            width: 100%;
-            padding: 24px;
-            background: linear-gradient(135deg, var(--gold-deep), var(--gold));
-            color: var(--ivory);
-            border: none;
-            border-radius: var(--r-xs);
-            font-family: 'Cinzel', serif;
-            font-size: clamp(14px, 2vw, 18px);
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--t);
-            margin-top: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            min-height: 72px;
-        }
-
-            .btn-next-step:hover {
-                transform: translateY(-2px);
-                box-shadow: var(--shadow-gold);
-            }
-
-        .rsvp-success {
-            display: none;
-            text-align: center;
-            padding: 24px 0
-        }
-
-            .rsvp-success .success-icon {
-                width: 84px;
-                height: 84px;
-                background: linear-gradient(135deg, var(--gold-pale), #d4b87a);
+            .volume-slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 14px;
+                height: 14px;
                 border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 20px;
-                border: 2px solid var(--gold)
+                background: var(--gold-light);
+                cursor: pointer;
+                box-shadow: 0 0 8px rgba(196,162,74,.6);
             }
 
-                .rsvp-success .success-icon svg {
-                    width: 38px;
-                    height: 38px;
-                    stroke: var(--navy-deep);
-                    fill: none
-                }
-
-            .rsvp-success h3 {
-                font-family: 'Parisienne', cursive;
-                font-size: clamp(44px, 8vw, 58px);
-                color: var(--gold);
-                margin-bottom: 10px;
-                font-weight: 700;
+            .volume-slider::-moz-range-thumb {
+                width: 14px;
+                height: 14px;
+                border: none;
+                border-radius: 50%;
+                background: var(--gold-light);
+                cursor: pointer;
+                box-shadow: 0 0 8px rgba(196,162,74,.6);
             }
 
-            .rsvp-success p {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: clamp(20px, 2.6vw, 24px);
-                font-weight: 700;
-                font-style: italic;
-                color: var(--navy)
-            }
-
-        /* ══════════ REGALOS ══════════ */
         .gifts-section {
             padding: 92px 24px;
             background: var(--linen);
@@ -2166,8 +1915,6 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-radius: var(--r-xl) var(--r-xl) 0 0;
-            margin-top: 60px;
         }
 
             .photos-upload-section::before {
@@ -2323,7 +2070,319 @@
             text-transform: uppercase;
         }
 
-        /* ══════════ AUDIO WIDGET ══════════ */
+        /* WhatsApp divider */
+        .upload-wa-divider {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px dashed rgba(138,111,59,.28);
+            text-align: center;
+        }
+
+        .upload-wa-label {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: var(--r-full);
+            font-size: 16px;
+            box-shadow: 0 4px 14px rgba(37,211,102,.3);
+            transition: var(--t);
+        }
+
+            .btn-whatsapp:hover {
+                background: #1da851;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(37,211,102,.4);
+            }
+
+        /* ══════════ RSVP ══════════ */
+        .rsvp-section {
+            padding: 92px 20px 112px;
+            background: var(--navy-deep);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--r-xl) var(--r-xl) 0 0;
+            margin-top: 60px;
+        }
+
+            .rsvp-section .ornament-line::before {
+                background: linear-gradient(to left, rgba(196,162,74,.45), transparent)
+            }
+
+            .rsvp-section .ornament-line::after {
+                background: linear-gradient(to right, rgba(196,162,74,.45), transparent)
+            }
+
+        .rsvp-card {
+            max-width: 620px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: var(--r-lg);
+            padding: 56px 48px;
+            box-shadow: var(--shadow-deep), 0 0 0 1px rgba(138,111,59,.16);
+            position: relative;
+            border: 1px solid rgba(138,111,59,.18);
+            overflow: hidden;
+        }
+
+            .rsvp-card::before {
+                content: '';
+                position: absolute;
+                inset: 10px;
+                border: 1px dashed rgba(138,111,59,.25);
+                border-radius: calc(var(--r-lg) - 6px);
+                pointer-events: none
+            }
+
+        .rsvp-steps-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 44px;
+            align-items: center;
+        }
+
+        .step-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(138,111,59,.1);
+            border: 2px solid var(--gold);
+            transition: var(--t);
+        }
+
+            .step-dot.active {
+                background: var(--gold);
+                border-color: var(--gold-deep);
+                transform: scale(1.4);
+            }
+
+            .step-dot.done {
+                background: rgba(138,111,59,.38);
+                border-color: var(--gold);
+            }
+
+        .rsvp-step {
+            display: none;
+            animation: fadeIn .5s ease both;
+        }
+
+            .rsvp-step.active {
+                display: block;
+            }
+
+        .step-question {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(26px, 4.2vw, 38px);
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-style: italic;
+        }
+
+        .step-sub {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(14px, 2.2vw, 18px);
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--slate);
+            text-transform: uppercase;
+            margin-bottom: 36px;
+            line-height: 1.55;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .big-btns {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .big-btn {
+            min-width: 190px;
+            min-height: 78px;
+            padding: 22px 38px;
+            border-radius: var(--r-xs);
+            font-family: 'Cinzel', serif;
+            font-size: clamp(15px, 2.3vw, 19px);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--t);
+            border: 2px solid var(--gold);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .big-btn-yes {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+            .big-btn-yes:hover {
+                background: var(--gold-light);
+                transform: translateY(-3px);
+                box-shadow: 0 10px 32px rgba(138,111,59,.38);
+            }
+
+        .big-btn-no {
+            background: transparent;
+            color: var(--navy-deep);
+            border-color: rgba(26,41,63,.32);
+        }
+
+            .big-btn-no:hover {
+                background: rgba(26,41,63,.06);
+                transform: translateY(-3px);
+            }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(13px, 1.9vw, 16px);
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-deep);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 20px 24px;
+            border: 1.5px solid rgba(138,111,59,.32);
+            border-radius: var(--r-xs);
+            font-family: 'EB Garamond', serif;
+            font-size: clamp(19px, 2.4vw, 22px);
+            font-weight: 600;
+            color: var(--navy-deep);
+            background: var(--ivory);
+            outline: none;
+            transition: border-color .3s, box-shadow .3s;
+            appearance: none;
+        }
+
+            .form-input:focus, .form-select:focus, .form-textarea:focus {
+                border-color: var(--gold);
+                box-shadow: 0 0 0 4px rgba(138,111,59,.16);
+            }
+
+        .btn-next-step {
+            width: 100%;
+            padding: 24px;
+            background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+            color: var(--ivory);
+            border: none;
+            border-radius: var(--r-xs);
+            font-family: 'Cinzel', serif;
+            font-size: clamp(14px, 2vw, 18px);
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--t);
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 72px;
+        }
+
+            .btn-next-step:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-gold);
+            }
+
+        .rsvp-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid rgba(196,162,74,.2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin-loader 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin-loader {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .rsvp-success {
+            display: none;
+            text-align: center;
+            padding: 24px 0
+        }
+
+            .rsvp-success .success-icon {
+                width: 84px;
+                height: 84px;
+                background: linear-gradient(135deg, var(--gold-pale), #d4b87a);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 20px;
+                border: 2px solid var(--gold)
+            }
+
+                .rsvp-success .success-icon svg {
+                    width: 38px;
+                    height: 38px;
+                    stroke: var(--navy-deep);
+                    fill: none
+                }
+
+            .rsvp-success h3 {
+                font-family: 'Parisienne', cursive;
+                font-size: clamp(44px, 8vw, 58px);
+                color: var(--gold);
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+            .rsvp-success p {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(20px, 2.6vw, 24px);
+                font-weight: 700;
+                font-style: italic;
+                color: var(--navy)
+            }
+
         #audio-widget {
             position: fixed;
             bottom: 28px;
@@ -2381,7 +2440,6 @@
             }
         }
 
-        /* ══════════ WIDGET SIGUIENTE ══════════ */
         #swipe-widget {
             position: fixed;
             bottom: 28px;
@@ -2444,14 +2502,12 @@
             }
         }
 
-        /* ══════════ FOOTER ══════════ */
         footer {
             padding: 62px 20px;
             background: var(--navy-deep);
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-radius: var(--r-xl) var(--r-xl) 0 0;
         }
 
             footer::before {
@@ -2493,7 +2549,6 @@
             color: rgba(238,222,166,.42)
         }
 
-        /* ══════════ FOCUS ACCESSIBILITY ══════════ */
         :focus-visible {
             outline: 3px solid var(--gold-light);
             outline-offset: 3px;
@@ -2505,7 +2560,6 @@
             outline-offset: 3px;
         }
 
-        /* ══════════ KEYFRAMES ══════════ */
         @keyframes fadeDown {
             from {
                 opacity: 0;
@@ -2553,7 +2607,6 @@
             border-radius: 4px
         }
 
-        /* ══════════ RESPONSIVE ══════════ */
         @media (max-width: 768px) {
             .photo-card-wrap {
                 grid-template-columns: 1fr
@@ -2603,7 +2656,7 @@
                 height: 280px
             }
 
-            .hero, .itinerary-section, .dresscode-section, .photos-upload-section, footer {
+            .hero, .itinerary-section, .dresscode-section, .photos-upload-section, .rsvp-section {
                 border-radius: var(--r-md) var(--r-md) 0 0
             }
 
@@ -2808,6 +2861,20 @@
             </div>
         </section>
 
+        <!-- MENSAJE IMPORTANTE INICIAL -->
+        <section id="sec-important" style="position: relative; padding: 60px 24px; text-align: center; background: var(--navy-deep); overflow: hidden;">
+            <div style="position: absolute; inset: 0; background-image: url('img/importante.jpg'); background-size: cover; background-position: center; filter: brightness(.35) sepia(.2);"></div>
+            <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(14,30,48,.4) 0%, rgba(14,30,48,.8) 100%);"></div>
+            <div style="position: relative; z-index: 2; max-width: 680px; margin: 0 auto;">
+                <p style="font-family: 'Cinzel', serif; font-size: clamp(14px, 2vw, 18px); color: var(--gold-light); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; font-weight: 700;">
+                    <span class="orn orn-pale orn-sm" aria-hidden="true"></span> Aviso Importante <span class="orn orn-pale orn-sm" aria-hidden="true"></span>
+                </p>
+                <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3.5vw, 30px); color: var(--ivory); font-style: italic; font-weight: 700; line-height: 1.5; text-shadow: 0 2px 8px rgba(0,0,0,0.6);">
+                    ¡Lee toda la invitación con cuidado y confirma tu asistencia al final de la misma!
+                </p>
+            </div>
+        </section>
+
         <!-- HISTORIA -->
         <section class="historia-section" id="sec-historia" aria-labelledby="historia-title">
             <p class="section-label reveal">
@@ -2923,7 +2990,6 @@
             <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
             <div class="timeline" role="list">
 
-                <!-- ITEM 1: Ceremonia Religiosa -->
                 <div class="tl-item reveal" role="listitem">
                     <div class="tl-left">
                         <div class="tl-card">
@@ -2935,9 +3001,7 @@
                     <div class="tl-center">
                         <div class="tl-dot" aria-hidden="true"></div>
                         <div class="tl-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none">
-                                <path d="M3 21h18M12 3v18M8 21v-8a4 4 0 0 1 8 0v8M12 3l-4 4h8z" />
-                            </svg>
+                            <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M3 21h18M12 3v18M8 21v-8a4 4 0 0 1 8 0v8M12 3l-4 4h8z" /></svg>
                         </div>
                     </div>
                     <div class="tl-right">
@@ -2955,19 +3019,13 @@
                             </p>
                             <div class="tl-map-frame">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d860.7579811583166!2d-68.13708339555846!3d-16.50352901544598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f207a0bd40ba5%3A0x83e52574371b1b10!2sIglesia%20de%20San%20Pedro!5e1!3m2!1ses-419!2sbo!4v1778011496310!5m2!1ses-419!2sbo"
-                                        width="100%" height="185"
-                                        style="border:0;"
-                                        allowfullscreen=""
-                                        loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"
-                                        title="Ubicación Iglesia San Pedro en Google Maps">
-                                </iframe>
+                                        width="100%" height="185" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        title="Ubicación Iglesia San Pedro en Google Maps"></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- ITEM 2: Buses a Guaqui -->
                 <div class="tl-item reveal" role="listitem">
                     <div class="tl-left">
                         <div class="tl-card has-photo">
@@ -2983,31 +3041,27 @@
                     <div class="tl-center">
                         <div class="tl-dot" aria-hidden="true"></div>
                         <div class="tl-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none">
-                                <rect x="1" y="8" width="22" height="12" rx="2" />
-                                <path d="M5 20v2M19 20v2M1 12h22M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
-                            </svg>
+                            <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="1" y="8" width="22" height="12" rx="2" /><path d="M5 20v2M19 20v2M1 12h22M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" /></svg>
                         </div>
                     </div>
                     <div class="tl-right">
                         <div class="tl-card">
                             <p class="tl-time text-gold">12:00 PM</p>
                             <h3 class="tl-title text-pale">Concentración de buses</h3>
-                            <p class="tl-desc text-pale" style="opacity:.88">Nos reuniremos aquí para abordar buses cómodos y seguros que nos llevarán al Puerto de Guaqui.</p>
+                            <p class="tl-desc text-pale" style="opacity:.88">Nos reuniremos al salir de la iglesia para abordar buses que nos llevarán al Puerto de Guaqui.</p>
                             <a href="https://maps.app.goo.gl/CN962pcZ4M45avMN9" target="_blank" rel="noopener" class="btn-canva" style="margin-top:16px; margin-bottom:0; padding:14px 24px; font-size:12px;">
                                 <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" /><circle cx="12" cy="10" r="3" /></svg>
-                                Ver punto de encuentro
+                                Ver ruta
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- ITEM 3: Llegada al Puerto -->
                 <div class="tl-item reveal" role="listitem">
                     <div class="tl-left">
                         <div class="tl-card">
                             <p class="tl-time text-gold">Llegada</p>
-                            <h3 class="tl-title text-pale">Puerto de Guaqui</h3>
+                            <h3 class="tl-title text-pale">Recorrido de los buses</h3>
                             <p class="tl-desc text-pale" style="opacity:.88">Al llegar, nos reuniremos con calma para iniciar la celebración y abordar el barco.</p>
                         </div>
                     </div>
@@ -3020,7 +3074,7 @@
                     <div class="tl-right">
                         <div class="tl-card has-photo">
                             <p class="tl-photo-title">Llegada de invitados</p>
-                            <img src="img/llegada.jpg" alt="Llegada de invitados" class="tl-photo"
+                            <img src="img/llegada.jpg" alt="Destino: Puerto de Guaqui" class="tl-photo"
                                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                             <div class="photo-placeholder-box">
                                 <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" /></svg>
@@ -3030,9 +3084,7 @@
                     </div>
                 </div>
 
-                <!-- ITEM 4: Paseo en Barco -->
                 <div class="tl-item reveal" role="listitem">
-
                     <div class="tl-center">
                         <div class="tl-dot" aria-hidden="true"></div>
                         <div class="tl-icon" aria-hidden="true">
@@ -3048,7 +3100,6 @@
                     </div>
                 </div>
 
-                <!-- ITEM 5: Regreso -->
                 <div class="tl-item reveal" role="listitem">
                     <div class="tl-left">
                         <div class="tl-card">
@@ -3063,7 +3114,6 @@
                             <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M3 9l9-7 9 7M5 9v11a1 1 0 0 0 1 1h4v-5h4v5h4a1 1 0 0 0 1-1V9" /></svg>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -3118,7 +3168,7 @@
             <p class="section-label reveal text-gold">
                 <span class="orn orn-pale" aria-hidden="true"></span>&nbsp;Nuestra canción&nbsp;<span class="orn orn-pale" aria-hidden="true"></span>
             </p>
-            <h2 class="section-title reveal text-pale" id="music-title">La melodía de <em style="color:var(--gold-light)">nuestro amor</em></h2>
+            <h2 class="section-title reveal text-pale" id="music-title">La melodía de <em style="color:var(--gold-light)">nuestro día</em></h2>
             <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
 
             <div class="vinyl-wrap reveal" id="vinyl-wrap" aria-hidden="true">
@@ -3126,8 +3176,8 @@
                 <div class="vinyl-grooves"></div>
             </div>
 
-            <p class="now-playing reveal text-pale" id="song-title">Nombre de la Canción</p>
-            <p class="now-artist reveal text-pale" id="song-artist">Nombre del Artista</p>
+            <p class="now-playing reveal text-pale" id="song-title">The Throne Room End Title</p>
+            <p class="now-artist reveal text-pale" id="song-artist">Star Wars Episode IV A New Hope (1977)</p>
 
             <div class="music-controls reveal">
                 <button class="music-btn" id="btn-rewind" aria-label="Retroceder 10 segundos">
@@ -3141,6 +3191,7 @@
                     <svg viewBox="0 0 24 24" fill="var(--gold-light)"><path d="M11.5 3a9 9 0 1 1-9 9h2a7 7 0 1 0 7-7V7l4-4-4-4V3z" /><text x="8" y="15" font-size="6" fill="var(--gold-light)" font-family="sans-serif">10</text></svg>
                 </button>
             </div>
+
             <div class="music-progress reveal">
                 <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                     <div class="progress-fill" id="progress-fill"></div>
@@ -3148,6 +3199,126 @@
                 <div class="progress-times">
                     <span id="time-current">0:00</span>
                     <span id="time-total">0:00</span>
+                </div>
+            </div>
+
+            <div class="volume-wrap reveal">
+                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" /></svg>
+                <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="60" aria-label="Control de volumen">
+            </div>
+        </section>
+
+        <!-- REGALOS -->
+        <section class="gifts-section" id="sec-gifts" aria-labelledby="gifts-title">
+            <p class="section-label reveal">
+                <span class="orn" aria-hidden="true"></span>&nbsp;Con todo nuestro amor&nbsp;<span class="orn" aria-hidden="true"></span>
+            </p>
+            <h2 class="section-title reveal" id="gifts-title">Lista de <em>Regalos</em></h2>
+            <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
+            <p class="gifts-intro reveal">Su presencia y bendición son nuestro mayor regalo. Si desean tener un detalle con nosotros, compartimos estas opciones.</p>
+
+            <div class="gifts-grid">
+                <div class="gift-card reveal">
+                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg></div>
+                    <h3 class="gift-name">Lista de Deseos</h3>
+                    <p class="gift-desc">Hemos preparado con amor una lista de regalos. Toca el botón para verla.</p>
+                    <a href="https://axisstudioss.my.canva.site/maritza-y-jadiel" target="_blank" rel="noopener" class="btn-canva">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" /></svg>
+                        Ver lista de regalos
+                    </a>
+                    <p style="font-size:15px;color:var(--text-light);font-style:italic;margin-top:8px">Se abrirá en una nueva pestaña</p>
+                </div>
+
+                <div class="gift-card reveal">
+                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg></div>
+                    <h3 class="gift-name">Pago con QR</h3>
+                    <p class="gift-desc">Escanea o descarga nuestro código QR.</p>
+                    <div class="gift-qr">
+                        <img src="img/qr-pago.png" alt="Código QR de pago" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="gift-qr-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="5" y="5" width="3" height="3" fill="var(--gold)" /><rect x="16" y="5" width="3" height="3" fill="var(--gold)" /><rect x="5" y="16" width="3" height="3" fill="var(--gold)" /><path d="M14 14h3v3h-3zM17 17h3v3M14 20h3" /></svg><span>img/qr-pago.png</span></div>
+                    </div>
+                    <a href="img/qr-pago.png" download="QR_Maritza_Jadiel.png" class="btn-canva" style="margin-top:10px;">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                        Descargar QR
+                    </a>
+                </div>
+
+                <div class="gift-card reveal">
+                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2M2 11h20" /></svg></div>
+                    <h3 class="gift-name">Transferencia</h3>
+                    <p class="gift-desc">Puedes hacernos una transferencia directa a nuestra cuenta bancaria.</p>
+                    <p class="gift-detail">
+                        <strong style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold-deep)">DATOS BANCARIOS</strong><br><br>
+                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Banco: <span id="banco-nombre">Nombre del Banco</span><br>
+                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Titular: <span id="banco-titular">Jadiel / Maritza</span><br>
+                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Cuenta: <span id="banco-cuenta">0000-0000-0000-0000</span><br>
+                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Tipo: <span id="banco-tipo">Cuenta de Ahorros</span>
+                    </p>
+                    <button class="btn-copy" data-copy="0000-0000-0000-0000">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                        Copiar cuenta
+                    </button>
+                </div>
+            </div>
+            <p class="gifts-note reveal">Gracias de corazón por su generosidad y cariño.</p>
+        </section>
+
+        <!-- ══════════ SUBIR FOTOS ══════════ -->
+        <section class="photos-upload-section" id="sec-photos" aria-labelledby="upload-title">
+            <p class="section-label reveal">
+                <span class="orn" aria-hidden="true"></span>&nbsp;Comparte tus fotos&nbsp;<span class="orn" aria-hidden="true"></span>
+            </p>
+            <h2 class="section-title reveal" id="upload-title">Tu recuerdo <em>importa</em></h2>
+            <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
+
+            <p class="gifts-intro reveal" style="max-width: 600px; margin: 0 auto 30px; font-size: clamp(18px, 2.4vw, 22px); color: var(--navy-deep);">
+                ¡No olvides volver a esta sección el día de la boda para compartir con los novios tus momentos especiales que capturaste!
+            </p>
+
+            <div class="upload-card reveal">
+                <div class="upload-icon">
+                    <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
+                </div>
+                <h3 class="upload-title">Sube tus fotos</h3>
+                <p class="upload-desc">¿Capturaste un momento especial? ¡Compártelo! Puedes subir varias veces sin recargar la página.</p>
+
+                <!-- DROPZONE -->
+                <div class="dropzone" id="dropzone">
+                    <input type="file" id="file-input" accept="image/*" multiple>
+                    <div class="dropzone-text">
+                        <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Toca aquí para seleccionar tus fotos
+                    </div>
+                    <div class="dropzone-sub">JPG, PNG, WEBP · Máx. 30 MB por archivo</div>
+                </div>
+
+                <!-- AVISO ARCHIVOS PESADOS (solo texto, sin botón WA aquí) -->
+                <div id="upload-heavy-msg" style="display:none; text-align:center; margin-top:16px; padding:16px 18px; background:rgba(184,48,48,.05); border:1.5px dashed #b83030; border-radius:var(--r-sm);">
+                    <p style="color:#b83030; font-weight:bold; font-family:'Cinzel',serif; letter-spacing:1px; font-size:13px; margin-bottom:8px; text-transform:uppercase;">
+                        ⚠ Algunos archivos superan 30 MB
+                    </p>
+                    <p style="color:var(--text-dark); font-size:16px; line-height:1.5; margin:0;">
+                        Solo se subirán las fotos dentro del límite. Para archivos pesados usa el botón de WhatsApp.
+                    </p>
+                </div>
+
+                <!-- PROGRESO -->
+                <div class="upload-progress" id="upload-progress">
+                    <div class="upload-progress-bar"><div class="upload-progress-fill" id="upload-progress-fill"></div></div>
+                    <div class="upload-status" id="upload-status">Subiendo...</div>
+                </div>
+
+                <!-- ERROR -->
+                <p class="upload-note" id="upload-error-msg" style="display:none; color:#b83030; font-weight:bold; margin-top:16px;">
+                    Hubo un error en algunas fotos. Inténtalo de nuevo o envíalas por WhatsApp.
+                </p>
+
+                <!-- WHATSAPP — SIEMPRE VISIBLE -->
+                <div class="upload-wa-divider">
+                    <p class="upload-wa-label">Videos y archivos grandes (más de 30 MB)</p>
+                    <a href="https://wa.me/59173443086?text=Quiero%20compartir%20recuerdos%20de%20la%20boda%20de%20Jadiel%20y%20Maritza" target="_blank" rel="noopener" class="btn-whatsapp">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.305-.88-.653-1.474-1.46-1.647-1.757-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
+                        Enviar por WhatsApp
+                    </a>
                 </div>
             </div>
         </section>
@@ -3162,7 +3333,7 @@
 
             <div class="reveal" style="text-align: center; margin-bottom: 40px; padding: 0 20px;">
                 <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3.5vw, 30px); color: var(--gold-light); font-style: italic; font-weight: 700; margin-bottom: 16px;">
-                    ¡Responde el formulario para confirmar tu asistencia porfavor!
+                    ¡Responde el formulario para confirmar tu asistencia por favor!
                 </p>
                 <div style="background: rgba(14,30,48,.5); border: 1px dashed rgba(196,162,74,.4); padding: 20px 24px; border-radius: var(--r-xs); display: inline-block; max-width: 650px;">
                     <p style="font-size: clamp(16px, 2vw, 18px); color: rgba(238,222,166,.9); line-height: 1.6; margin: 0; font-family: 'EB Garamond', serif;">
@@ -3274,101 +3445,16 @@
                     </button>
                 </div>
 
+                <div class="rsvp-loading" id="rsvp-loading" style="display:none; text-align:center; padding: 40px 0;">
+                    <div class="rsvp-spinner"></div>
+                    <p style="font-family: 'Cinzel', serif; color: var(--gold-deep); font-weight: bold; letter-spacing: 2px; margin-top: 20px;">Enviando confirmación...</p>
+                </div>
+
                 <div class="rsvp-success" id="rsvp-success">
                     <div class="success-icon"><svg viewBox="0 0 24 24" stroke-width="2.5" fill="none"><path d="M20 6L9 17l-5-5" /></svg></div>
                     <h3>¡Gracias!</h3>
                     <p id="rsvp-success-msg">Hemos recibido tu confirmación.<br>Con mucho amor, Maritza &amp; Jadiel.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- REGALOS -->
-        <section class="gifts-section" id="sec-gifts" aria-labelledby="gifts-title">
-            <p class="section-label reveal">
-                <span class="orn" aria-hidden="true"></span>&nbsp;Con todo nuestro amor&nbsp;<span class="orn" aria-hidden="true"></span>
-            </p>
-            <h2 class="section-title reveal" id="gifts-title">Lista de <em>Regalos</em></h2>
-            <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
-            <p class="gifts-intro reveal">Su presencia y bendición son nuestro mayor regalo. Si desean tener un detalle con nosotros, compartimos estas opciones.</p>
-
-            <div class="gifts-grid">
-                <div class="gift-card reveal">
-                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M20 12V22H4V12M22 7H2v5h20V7zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg></div>
-                    <h3 class="gift-name">Lista de Deseos</h3>
-                    <p class="gift-desc">Hemos preparado con amor una lista de regalos. Toca el botón para verla.</p>
-                    <a href="https://axisstudioss.my.canva.site/maritza-y-jadiel" target="_blank" rel="noopener" class="btn-canva">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" /></svg>
-                        Ver lista de regalos
-                    </a>
-                    <p style="font-size:15px;color:var(--text-light);font-style:italic;margin-top:8px">Se abrirá en una nueva pestaña</p>
-                </div>
-
-                <div class="gift-card reveal">
-                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg></div>
-                    <h3 class="gift-name">Pago con QR</h3>
-                    <p class="gift-desc">Escanea o descarga nuestro código QR.</p>
-                    <div class="gift-qr">
-                        <img src="img/qr-pago.png" alt="Código QR de pago" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="gift-qr-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="5" y="5" width="3" height="3" fill="var(--gold)" /><rect x="16" y="5" width="3" height="3" fill="var(--gold)" /><rect x="5" y="16" width="3" height="3" fill="var(--gold)" /><path d="M14 14h3v3h-3zM17 17h3v3M14 20h3" /></svg><span>img/qr-pago.png</span></div>
-                    </div>
-                    <a href="img/qr-pago.png" download="QR_Maritza_Jadiel.png" class="btn-canva" style="margin-top:10px;">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-                        Descargar QR
-                    </a>
-                </div>
-
-                <div class="gift-card reveal">
-                    <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2M2 11h20" /></svg></div>
-                    <h3 class="gift-name">Transferencia</h3>
-                    <p class="gift-desc">Puedes hacernos una transferencia directa a nuestra cuenta bancaria.</p>
-                    <p class="gift-detail">
-                        <strong style="font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold-deep)">DATOS BANCARIOS</strong><br><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Banco: <span id="banco-nombre">Nombre del Banco</span><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Titular: <span id="banco-titular">Jadiel / Maritza</span><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Cuenta: <span id="banco-cuenta">0000-0000-0000-0000</span><br>
-                        <span class="orn orn-sm" style="background:var(--gold-deep)" aria-hidden="true"></span> Tipo: <span id="banco-tipo">Cuenta de Ahorros</span>
-                    </p>
-                    <button class="btn-copy" data-copy="0000-0000-0000-0000">
-                        <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
-                        Copiar cuenta
-                    </button>
-                </div>
-            </div>
-            <p class="gifts-note reveal">Gracias de corazón por su generosidad y cariño.</p>
-        </section>
-
-        <!-- SUBIR FOTOS -->
-        <section class="photos-upload-section" id="sec-photos" aria-labelledby="upload-title">
-            <p class="section-label reveal">
-                <span class="orn" aria-hidden="true"></span>&nbsp;Comparte tus fotos&nbsp;<span class="orn" aria-hidden="true"></span>
-            </p>
-            <h2 class="section-title reveal" id="upload-title">Tu recuerdo <em>importa</em></h2>
-            <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
-            <div class="upload-card reveal">
-                <div class="upload-icon">
-                    <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-                </div>
-                <h3 class="upload-title">Sube tus fotos</h3>
-                <p class="upload-desc">¿Capturaste un momento especial? ¡Compártelo! Tus fotos se guardarán en nuestra carpeta compartida.</p>
-                <div class="dropzone" id="dropzone">
-                    <input type="file" id="file-input" accept="image/*,video/*" multiple>
-                    <div class="dropzone-text">
-                        <span class="orn orn-sm" style="background:var(--gold)" aria-hidden="true"></span>&nbsp;Toca aquí para seleccionar tus fotos
-                    </div>
-                    <div class="dropzone-sub">JPG, PNG, MP4 · Máx. 100 MB por archivo</div>
-                </div>
-                <div class="upload-progress" id="upload-progress">
-                    <div class="upload-progress-bar"><div class="upload-progress-fill" id="upload-progress-fill"></div></div>
-                    <div class="upload-status" id="upload-status">Subiendo...</div>
-                </div>
-                <p class="upload-note" id="upload-error-msg" style="display:none; color: #b83030; font-weight: bold;">
-                    Hubo un error al subir los archivos.<br>Por favor envíalos por WhatsApp:<br><br>
-                    <a href="https://wa.me/59173443086?text=Les%20envio%20nuestros%20recuerdos%20de%20la%20boda%20de%20Maritza%20y%20Jadiel%20!" target="_blank"
-                       style="display:inline-flex;align-items:center;gap:8px;color:var(--gold-deep);font-weight:bold;text-decoration:none;padding:16px 24px;border:1.5px solid var(--gold);border-radius:var(--r-xs);transition:var(--t);font-size:17px;margin-top:8px">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.305-.88-.653-1.474-1.46-1.647-1.757-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
-                        WhatsApp: +591 73443086
-                    </a>
-                </p>
             </div>
         </section>
 
@@ -3416,9 +3502,9 @@
             { id: 'sec-itinerary', label: 'Itinerario del Día' },
             { id: 'sec-dresscode', label: 'Dress Code' },
             { id: 'seccion-musica', label: 'Nuestra Canción' },
-            { id: 'rsvp', label: 'Confirmar Asistencia' },
             { id: 'sec-gifts', label: 'Lista de Regalos' },
             { id: 'sec-photos', label: 'Sube tus Fotos' },
+            { id: 'rsvp', label: 'Confirmar Asistencia' },
             { id: 'sec-footer', label: 'Fin' },
         ];
 
@@ -3552,6 +3638,10 @@
             }
             rsvpAnswers.timestamp = new Date().toLocaleString('es-BO', { timeZone: 'America/La_Paz' });
 
+            document.querySelectorAll('.rsvp-step').forEach(function (s) { s.classList.remove('active'); });
+            document.getElementById('steps-indicator').style.display = 'none';
+            document.getElementById('rsvp-loading').style.display = 'block';
+
             fetch(CONFIG.sheetsWebAppUrl, {
                 method: 'POST', mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -3586,6 +3676,7 @@
         }
 
         function showRsvpSuccess() {
+            document.getElementById('rsvp-loading').style.display = 'none';
             document.querySelectorAll('.rsvp-step').forEach(function (s) { s.classList.remove('active'); });
             document.getElementById('steps-indicator').style.display = 'none';
             document.getElementById('rsvp-success').style.display = 'block';
@@ -3715,7 +3806,7 @@
         })();
 
         /* ═══════════════════════════════════════════
-           SCROLL REVEAL — acuarela
+           SCROLL REVEAL
         ═══════════════════════════════════════════ */
         function revealObserver() {
             var items = document.querySelectorAll('.reveal');
@@ -3766,7 +3857,7 @@
         })();
 
         /* ═══════════════════════════════════════════
-           AUDIO
+           AUDIO Y CONTROL DE VOLUMEN
         ═══════════════════════════════════════════ */
         (function () {
             var audio = document.getElementById('wedding-audio');
@@ -3781,17 +3872,42 @@
             var pBar = document.getElementById('progress-bar');
             var tCur = document.getElementById('time-current');
             var tTot = document.getElementById('time-total');
+            var volSlider = document.getElementById('volume-slider');
+
             var playing = false;
+            var targetVolume = volSlider.value / 100;
+            var fadeInterval;
+
+            volSlider.addEventListener('input', function () {
+                clearInterval(fadeInterval);
+                targetVolume = this.value / 80;
+                audio.volume = targetVolume;
+            });
 
             function fmt(s) { var m = Math.floor(s / 60); return m + ':' + String(Math.floor(s % 60)).padStart(2, '0'); }
+
             function setUI(p) {
                 playing = p;
                 fPlay.style.display = p ? 'none' : 'block'; fPause.style.display = p ? 'block' : 'none';
                 mPlay.style.display = p ? 'none' : 'block'; mPause.style.display = p ? 'block' : 'none';
                 vinyl.classList.toggle('playing', p);
             }
-            function play() { audio.play().then(function () { setUI(true); }).catch(function () { setUI(false); }); }
-            function pause() { audio.pause(); setUI(false); }
+
+            function play() {
+                clearInterval(fadeInterval);
+                audio.volume = 0;
+                audio.play().then(function () {
+                    setUI(true);
+                    var currentVol = 0;
+                    fadeInterval = setInterval(function () {
+                        currentVol += 0.01;
+                        if (currentVol >= targetVolume) { audio.volume = targetVolume; clearInterval(fadeInterval); }
+                        else { audio.volume = currentVol; }
+                    }, 200);
+                }).catch(function () { setUI(false); });
+            }
+
+            function pause() { clearInterval(fadeInterval); audio.pause(); setUI(false); }
             function toggle() { if (playing) pause(); else play(); }
 
             audio.addEventListener('timeupdate', function () {
@@ -3851,43 +3967,150 @@
 
         /* ═══════════════════════════════════════════
            DROPZONE / UPLOAD FOTOS
+           ─ Cambios aplicados:
+             1. Prefijo "Sin Identificar - " cuando no hay URL personalizada
+             2. Prefijo "[Nombre Apellido] - " cuando sí hay URL personalizada
+             3. Reset automático tras cada lote → permite subir más fotos sin recargar
+             4. Validación real de 30 MB por archivo antes de enviar
+             5. WhatsApp siempre visible (en el HTML, no aquí)
         ═══════════════════════════════════════════ */
         (function () {
             var dropzone = document.getElementById('dropzone');
-            var fileInput = document.getElementById('file-input');
             var progressWrap = document.getElementById('upload-progress');
             var progressFill = document.getElementById('upload-progress-fill');
             var statusEl = document.getElementById('upload-status');
             var errorMsg = document.getElementById('upload-error-msg');
+            var heavyMsg = document.getElementById('upload-heavy-msg');
             if (!dropzone) return;
-            dropzone.addEventListener('dragover', function (e) { e.preventDefault(); dropzone.classList.add('dragover'); });
-            dropzone.addEventListener('dragleave', function () { dropzone.classList.remove('dragover'); });
-            dropzone.addEventListener('drop', function (e) { e.preventDefault(); dropzone.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
-            fileInput.addEventListener('change', function () { handleFiles(this.files); });
+
+            // Guardar HTML original del dropzone para restaurarlo tras cada lote
+            var originalDropzoneHTML = dropzone.innerHTML;
+
+            // ── PREFIJO DE NOMBRE ──────────────────────────────────────────
+            // URL personalizada (?nombre=Juan&apellido=Perez) → "Juan Perez - "
+            // Sin URL personalizada                           → "Sin Identificar - "
+            var prefix;
+            (function () {
+                var g = window.GUEST;
+                if (g && g.nombre) {
+                    var raw = [g.nombre, g.apellido].filter(Boolean).join(' ');
+                    // Quitar caracteres problemáticos para nombres de archivo
+                    var safe = raw.replace(/[\/\\:*?"<>|]/g, '').trim();
+                    prefix = safe.length > 0 ? safe + ' - ' : 'Sin Identificar - ';
+                } else {
+                    prefix = 'Sin Identificar - ';
+                }
+            })();
+
+            // ── ENLAZAR EVENTOS AL DROPZONE (reutilizable tras reset) ──────
+            function bindDropzone() {
+                var dz = document.getElementById('dropzone');
+                if (!dz) return;
+                var fi = dz.querySelector('#file-input');
+
+                dz.addEventListener('dragover', function (e) { e.preventDefault(); dz.classList.add('dragover'); });
+                dz.addEventListener('dragleave', function () { dz.classList.remove('dragover'); });
+                dz.addEventListener('drop', function (e) {
+                    e.preventDefault(); dz.classList.remove('dragover');
+                    handleFiles(e.dataTransfer.files);
+                });
+                if (fi) {
+                    fi.addEventListener('change', function () {
+                        if (this.files && this.files.length) handleFiles(this.files);
+                    });
+                }
+            }
+            bindDropzone();
+
+            // ── RESET TRAS CADA LOTE ───────────────────────────────────────
+            function resetDropzone() {
+                progressFill.style.width = '0%';
+                progressWrap.style.display = 'none';
+                errorMsg.style.display = 'none';
+                heavyMsg.style.display = 'none';
+                statusEl.textContent = 'Subiendo...';
+                // Restaurar dropzone original para nuevo lote
+                var dz = document.getElementById('dropzone');
+                if (dz) {
+                    dz.innerHTML = originalDropzoneHTML;
+                    bindDropzone(); // re-enlazar eventos al nuevo input restaurado
+                }
+            }
+
+            // ── MANEJO DE ARCHIVOS ─────────────────────────────────────────
             function handleFiles(files) {
                 if (!files || !files.length) return;
-                progressWrap.style.display = 'block'; errorMsg.style.display = 'none';
-                var total = files.length, done = 0, errores = 0;
-                function updateProgress(hasError) {
-                    if (hasError) errores++;
+
+                var MAX_SIZE = 30 * 1024 * 1024; // 30 MB exactos
+                var validFiles = [];
+                var hasHeavy = false;
+
+                Array.from(files).forEach(function (file) {
+                    if (file.size > MAX_SIZE) {
+                        hasHeavy = true;
+                    } else {
+                        validFiles.push(file);
+                    }
+                });
+
+                // Mostrar aviso si había archivos pesados
+                heavyMsg.style.display = hasHeavy ? 'block' : 'none';
+
+                // Si todos eran pesados, no continuar
+                if (validFiles.length === 0) return;
+
+                // Mostrar barra de progreso
+                progressWrap.style.display = 'block';
+                errorMsg.style.display = 'none';
+
+                var total = validFiles.length;
+                var done = 0;
+                var errores = 0;
+
+                function updateProgress(isError) {
+                    if (isError) errores++;
                     done++;
+
                     var pct = Math.round((done / total) * 100);
                     progressFill.style.width = pct + '%';
-                    statusEl.textContent = done + ' de ' + total + ' archivo(s) procesados...';
-                    if (done === total) {
-                        if (errores > 0) { statusEl.textContent = 'Proceso terminado con algunos errores.'; errorMsg.style.display = 'block'; }
-                        else { statusEl.textContent = 'Todas las fotos fueron enviadas con éxito'; dropzone.innerHTML = '<div class="dropzone-text">Fotos enviadas correctamente</div>'; }
+                    statusEl.textContent = done + ' de ' + total + ' foto(s) enviadas...';
+
+                    if (done < total) return; // Esperar al resto
+
+                    // ── Lote completado ──
+                    if (errores > 0) {
+                        statusEl.textContent = 'Listo con ' + errores + ' error(es). Puedes intentar de nuevo.';
+                        errorMsg.style.display = 'block';
+                        setTimeout(resetDropzone, 4500);
+                    } else {
+                        statusEl.textContent = '✓ ¡' + total + ' foto(s) enviadas con éxito! Puedes subir más.';
+                        // Reset completo para permitir nuevos lotes sin recargar
+                        setTimeout(resetDropzone, 3500);
                     }
                 }
-                Array.from(files).forEach(function (file) {
+
+                // Subir cada archivo
+                validFiles.forEach(function (file) {
                     var reader = new FileReader();
                     reader.onload = function (ev) {
                         var base64 = ev.target.result.split(',')[1];
+                        // Nombre final en Drive: "[Prefijo][nombre-original.jpg]"
+                        var finalName = prefix + file.name;
+
                         fetch(CONFIG.driveUploadUrl, {
-                            method: 'POST', mode: 'no-cors',
+                            method: 'POST',
+                            mode: 'no-cors',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ action: 'uploadFile', fileName: file.name, mimeType: file.type, data: base64, folderId: CONFIG.driveFolderId })
-                        }).then(function () { updateProgress(false); }).catch(function () { updateProgress(true); });
+                            body: JSON.stringify({
+                                action: 'uploadFile',
+                                fileName: finalName,
+                                mimeType: file.type,
+                                data: base64,
+                                folderId: CONFIG.driveFolderId
+                            })
+                        })
+                            .then(function () { updateProgress(false); })
+                            .catch(function () { updateProgress(true); });
                     };
                     reader.onerror = function () { updateProgress(true); };
                     reader.readAsDataURL(file);
