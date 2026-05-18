@@ -178,7 +178,7 @@
         .hero-date .dot { color: var(--gold); font-size: 10px; }
         .hero-scroll { 
     position: absolute; 
-    bottom: 130px; /* <--- Lo subimos a 130px para que quede libre del botón flotante */
+    bottom: 50px; 
     left: 50%; 
     transform: translateX(-50%); 
     z-index: 4; 
@@ -407,32 +407,40 @@
         .dress-note-header { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 14px; }
         .dress-note-header-line { flex: 1; height: 1px; background: rgba(180,180,180,.4); }
 
-        /* ── MÚSICA (VINILO) ── */
-        .music-section { padding: 92px 20px; background: var(--bg-darker); position: relative; text-align: center; overflow: hidden; border-radius: var(--r-xl) var(--r-xl) 0 0; margin-top: 60px; }
+        /* ── MÚSICA (VINILO) COMPACTA ── */
+        .music-section { padding: 60px 20px; background: var(--bg-darker); position: relative; text-align: center; overflow: hidden; border-radius: var(--r-xl) var(--r-xl) 0 0; margin-top: 40px; }
         .music-section::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E"); }
         .music-section .ornament-line::before { background: linear-gradient(to left, var(--silver-light), transparent) }
         .music-section .ornament-line::after { background: linear-gradient(to right, var(--silver-light), transparent) }
-        .vinyl-wrap { width: 190px; height: 190px; margin: 0 auto 32px; position: relative; cursor: pointer; }
-        .vinyl { width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle at 50%, #191919 0%, #0c0c0c 28%, #040404 40%, #000 100%); box-shadow: 0 8px 32px rgba(40,40,40,.4), 0 0 28px rgba(255,255,255,.15); }
+        
+        /* Vinilo más pequeño (de 190px a 130px) */
+        .vinyl-wrap { width: 130px; height: 130px; margin: 0 auto 20px; position: relative; cursor: pointer; }
+        .vinyl { width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle at 50%, #191919 0%, #0c0c0c 28%, #040404 40%, #000 100%); box-shadow: 0 6px 20px rgba(40,40,40,.4), 0 0 20px rgba(255,255,255,.15); }
         .vinyl::after { content: ''; position: absolute; inset: 35%; border-radius: 50%; background: radial-gradient(circle, var(--silver-light) 0%, #aab3bc 60%, #8b959e 100%); box-shadow: 0 2px 8px rgba(40,40,40,.3); }
-        .vinyl-wrap.playing .vinyl { animation: spin 4s linear infinite; box-shadow: 0 8px 40px rgba(40,40,40,.5), 0 0 50px rgba(255,255,255,.25); }
-        .vinyl-grooves { position: absolute; inset: 8px; border-radius: 50%; border: 1px solid rgba(255,255,255,.08); pointer-events: none }
-        .now-playing { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3.8vw, 30px); font-weight: 700; font-style: italic; margin-bottom: 8px; color: var(--silver-ultra); }
-        .now-artist { font-family: 'Cinzel', serif; font-size: clamp(12px, 1.9vw, 15px); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--silver-pale); }
-        .music-controls { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 32px }
-        .music-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.4); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--t); }
-        .music-btn:hover { background: rgba(255,255,255,.2); border-color: var(--silver-ultra); transform: scale(1.08); }
-        .music-btn.main-btn { width: 80px; height: 80px; background: linear-gradient(135deg, #8b959e, #76818a); border-color: var(--silver-bright); }
-        .music-btn svg { width: 26px; height: 26px; fill: var(--silver-ultra) }
-        .music-progress { max-width: 380px; margin: 28px auto 0 }
+        .vinyl-wrap.playing .vinyl { animation: spin 4s linear infinite; box-shadow: 0 6px 30px rgba(40,40,40,.5), 0 0 40px rgba(255,255,255,.25); }
+        .vinyl-grooves { position: absolute; inset: 6px; border-radius: 50%; border: 1px solid rgba(255,255,255,.08); pointer-events: none }
+        
+        /* Textos más compactos */
+        .now-playing { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 3.2vw, 26px); font-weight: 700; font-style: italic; margin-bottom: 4px; color: var(--silver-ultra); }
+        .now-artist { font-family: 'Cinzel', serif; font-size: clamp(11px, 1.6vw, 13px); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--silver-pale); }
+        
+        .music-controls { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 14px }
+        .music-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--t); }
+        .music-btn:hover { background: rgba(255,255,255,.15); border-color: var(--silver-ultra); transform: scale(1.08); }
+        .music-btn.main-btn { width: 50px; height: 50px; background: linear-gradient(135deg, #8b959e, #76818a); border-color: var(--silver-bright); }
+        .music-btn svg { width: 16px; height: 16px; fill: var(--silver-ultra) }
+        .music-btn.main-btn svg { width: 20px; height: 20px; }
+        
+        /* Barra de progreso y volumen */
+        .music-progress { max-width: 320px; margin: 20px auto 0 }
         .progress-bar { width: 100%; height: 6px; background: rgba(255,255,255,.2); border-radius: 3px; overflow: hidden; cursor: pointer }
         .progress-fill { height: 100%; background: linear-gradient(to right, var(--silver-light), var(--silver-bright)); width: 0%; border-radius: 3px; transition: width .5s linear }
-        .progress-times { display: flex; justify-content: space-between; margin-top: 8px; font-size: 14px; font-weight: 700; color: rgba(255,255,255,.6); font-family: 'Cinzel', serif }
-        .volume-wrap { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 18px; }
-        .volume-wrap svg { width: 20px; height: 20px; fill: rgba(255,255,255,.6); }
-        .volume-slider { -webkit-appearance: none; width: 140px; height: 4px; background: rgba(255,255,255,.2); border-radius: 2px; outline: none; }
-        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--silver-bright); cursor: pointer; }
-        .volume-slider::-moz-range-thumb { width: 14px; height: 14px; border: none; border-radius: 50%; background: var(--silver-bright); cursor: pointer; }
+        .progress-times { display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.6); font-family: 'Cinzel', serif }
+        .volume-wrap { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 14px; }
+        .volume-wrap svg { width: 18px; height: 18px; fill: rgba(255,255,255,.6); }
+        .volume-slider { -webkit-appearance: none; width: 120px; height: 4px; background: rgba(255,255,255,.2); border-radius: 2px; outline: none; }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--silver-bright); cursor: pointer; }
+        .volume-slider::-moz-range-thumb { width: 12px; height: 12px; border: none; border-radius: 50%; background: var(--silver-bright); cursor: pointer; }
 
         /* ── REGALOS ── */
         .gifts-section { padding: 92px 24px; background: var(--bg-section); text-align: center; position: relative; overflow: hidden; }
@@ -967,7 +975,7 @@
                     </div>
                     <div class="it-card-new">
                         <h3 class="it-card-title">Paseo en Barco</h3>
-                        <p class="it-card-desc">¡Zarparemos hacia un paseo y recepción con buena compañía! <br> Prepárate para navegar entre familia y amigos, conmúsica y diversión en nuestro matrimonio en el lago Titicaca </p>
+                        <p class="it-card-desc">¡Zarparemos hacia un paseo y recepción con buena compañía! <br> Prepárate para navegar entre familia y amigos, con música y diversión en nuestro matrimonio en el lago Titicaca </p>
                     </div>
                 </div>
                 <div class="it-connector" aria-hidden="true"></div>
@@ -1012,7 +1020,7 @@
                 </div>
                 <p>
                     El vestido blanco es exclusivo para la novia. Por favor, <strong>evitar usar colores rojo y negro para ellas.</strong><br>
-                    <strong>Recomendación especial:</strong> Les sugerimos vestimenta elegante pero cómoda por la particularidad del evento.
+                    <strong>Recomendación especial:</strong> Les sugerimos vestimenta elegante pero cómoda por la particularidad del evento y el clima.
                 </p>
             </div>
         </section>
@@ -1020,11 +1028,11 @@
         <!-- MÚSICA (VINILO) -->
         <section class="music-section" id="seccion-musica" aria-labelledby="music-title">
             <p class="section-label reveal" style="color:var(--silver-light)"><span class="orn orn-pale" aria-hidden="true"></span>&nbsp;Nuestra canción&nbsp;<span class="orn orn-pale" aria-hidden="true"></span></p>
-            <h2 class="section-title reveal" style="color:var(--silver-pale)" id="music-title">La melodía de <em style="color:var(--gold-light)">nuestro día</em></h2>
-            <div class="ornament-line reveal" aria-hidden="true"><div class="ornament-diamond"></div></div>
+            
+            
             <div class="vinyl-wrap reveal" id="vinyl-wrap" aria-hidden="true"><div class="vinyl"></div><div class="vinyl-grooves"></div></div>
             <p class="now-playing reveal" id="song-title">Marry You</p>
-            <p class="now-artist reveal" id="song-artist">Glee</p>
+            <p class="now-artist reveal" id="song-artist">Bruno Mars/ Glee</p>
             <div class="music-controls reveal">
                 <button class="music-btn" id="btn-rewind" aria-label="Retroceder 10 segundos">
                     <svg viewBox="0 0 24 24" fill="var(--silver-ultra)"><path d="M12.5 3a9 9 0 1 0 9 9h-2a7 7 0 1 1-7-7V7l-4-4 4-4V3z"/><text x="8" y="15" font-size="6" fill="var(--silver-ultra)" font-family="sans-serif">10</text></svg>
@@ -1059,7 +1067,7 @@
                 <div class="gift-card reveal">
                     <div class="gift-icon"><svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
                     <h3 class="gift-name">Pago con QR</h3>
-                    <p class="gift-desc">Escanea o descarga nuestro código QR para realizar tu regalo.</p>
+                    <p class="gift-desc">Escanea o descarga nuestro código QR para realizarnos tu presente.</p>
                     <div class="gift-qr"><img src="img/qr-pago.jpg" alt="Código QR de pago" onerror="this.style.display='none'"></div>
                     <a href="img/qr-pago.jpg" download="QR_Maritza_Jadiel.png" class="btn-canva" style="margin-top:10px;">
                         <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -1075,7 +1083,7 @@
                         Banco: <span id="banco-nombre">BCP</span><br>
                         Titular: <span id="banco-titular">Leon Guzman Maritza Zenaida</span><br>
                         Cuenta: <span id="banco-cuenta">201-50314644-3-54</span><br>
-                        Tipo: <span id="banco-tipo">Cuenta de Ahorros</span>
+                        Tipo: <span id="banco-tipo">Caja de Ahorros</span>
                     </p>
                     <button class="btn-copy" data-copy="0000-0000-0000-0000">
                         <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -1164,7 +1172,7 @@
        CONFIGURACIÓN
     ═══════════════════════════════════════ */
     var CONFIG = {
-        modoDemo: false,
+        modoDemo: true,
         fechaReal: new Date("May 30, 2026 11:00:00"),
         sheetsWebAppUrl: "https://script.google.com/macros/s/AKfycbxFpKjVXDjSTGDu2zhKMfae0wDubEj94NyUeekvB4TVc17D6tdOsWq2o6-i4w5MFFj9oQ/exec"
     };
